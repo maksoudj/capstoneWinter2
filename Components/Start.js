@@ -14,6 +14,9 @@ function Start(props) {
   const divisions = props.schoolsAndDivisions.divisions.map(
     (division) => division.division_name
   );
+  const grades = props.schoolsAndDivisions.grades.map(
+    (grade) => grade.grade_level
+    );
  // const [school, setSchool] = useState();
   useEffect(() => {
     const getSchools = async () => {
@@ -48,20 +51,11 @@ function Start(props) {
           <DropDown
             id="Select-Grade-Level"
             label="Select Grade Level"
-            options={[
-              "1st Grade",
-              "2nd Grade",
-              "3rd Grade",
-              "4th Grade",
-              "5th Grade",
-              "6th Grade",
-              "7th Grade",
-              "8th Grade",
-              "9th Grade",
-              "10th Grade",
-              "11th Grade",
-              "12th Grade",
-            ]}
+            options={grades}
+            value={props.formData.selectedGrade}
+            onChange={(event, value) => props.setFormData({...props.formData, selectedGrade: value})}
+
+
           />
         </div>
         <div>

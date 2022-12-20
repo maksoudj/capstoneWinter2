@@ -5,8 +5,9 @@ export default async function handler(req, res) {
     if (req.method == "GET"){
         try{
         const schools = await pool.query("SELECT school_name FROM schools");
-        const divisions = await pool.query("select division_name from divisions")
-        return res.status(200).json({schools,divisions});
+        const divisions = await pool.query("select division_name from divisions");
+        const grades = await pool.query("select grade_level from grades");
+        return res.status(200).json({schools,divisions, grades});
         }
         catch(error){
             return res.status(500).json({ error });

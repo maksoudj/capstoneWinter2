@@ -1,26 +1,12 @@
-#CREATE DATABASE productsdb IF NOT EXISTS;
 
-#use productsdb;
-
-#use project_codeva;
-
-CREATE TABLE if not exists product(
-  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(200),
-  description VARCHAR(400),
-  price DECIMAL,
-  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-describe product;
-
-show tables
 
 --drop tables
 drop table if exists schools;
 drop table if exists divisions;
 drop table if exists school_division;
-drop procedure if exists getSchoolsByDivision
+drop procedure if exists getSchoolsByDivision;
+drop table if exists grade_school;
+drop table if exists grades;
 --create schools
 create table schools (
     school_id int not null,
@@ -4983,17 +4969,34 @@ insert into school_division (school_division_id,school_id,division_id) values
   (3379, 3379, 1087);
 
 
+create table grades (
+  grade_id int not null primary key,
+  grade_level varchar(10)
+);
 
-  select school_name, division_name from schools
-  join
-  school_division
-  on schools.school_id = school_division.school_id
-  join
-  divisions
-  on
-  school_division.division_id = divisions.division_id
-  select * from schools
+insert into grades () values
+(1000, "1st"),
+(1001, "2nd"),
+(1002, "3rd"),
+(1003, "4th"),
+(1004, "5th"),
+(1005, "6th"),
+(1006, "7th"),
+(1007, "8th"),
+(1008, "9th"),
+(1009, "10th"),
+(1010, "11th"),
+(1011, "12th");
 
+
+
+create table grade_school(
+  grade_school_id int not null primary key,
+  grade_id int,
+  school_id int,
+  foreign key (grade_id) references grades(grade_id),
+  foreign key (school_id) references schools(school_id)
+);
 
   CREATE PROCEDURE getSchoolsByDivision(IN division VARCHAR(100))
 BEGIN

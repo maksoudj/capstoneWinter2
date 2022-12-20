@@ -14,6 +14,7 @@ function Parent(props){
     const [formData, setFormData] = useState ({
         selectedDivision: null,
         selectedSchool: null,
+        selectedGrade: null
     })
     console.log(props.schoolsAndDivisions)
 
@@ -37,6 +38,7 @@ export async function getStaticProps() {
     const { data: schoolsAndDivisions } = await axios.get(
       "http://localhost:3000/api/Schools"
     );
+    
     return {
       props: {
         schoolsAndDivisions,
