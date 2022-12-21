@@ -5004,3 +5004,5 @@ BEGIN
 END;
 
     SELECT schools.school_name FROM schools left join school_division on schools.school_id = school_division.school_id left join divisions on school_division.division_id = divisions.division_id where divisions.division_name like concat('%',trim("Henrico"),'%');
+
+

@@ -1,17 +1,29 @@
-import textfield from "./TextField";
-
 import { TextField } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import {
   DataGrid,
+  GridActionsCellItem,
   GridToolbarContainer,
   GridToolbarDensitySelector,
+  
 } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 import LinkButton from "./LinkButton";
-import { Button } from "@mui/material";
+import React from "react"
 
-function UserInput(props) {
+
+function UserInput({page,setPage,users,setUsers}) {
+  const deleteUser = React.useCallback(
+    (id) => () => {
+      setTimeout(() => {
+        setUsers((prevRows) => prevRows.filter((row) => row.id !== id));
+      });
+    },
+    [setUsers],
+  );
+    
+  
   function CustomToolbar() {
     return (
       <GridToolbarContainer>
@@ -19,36 +31,20 @@ function UserInput(props) {
       </GridToolbarContainer>
     );
   }
-  const rows = [
-    {
-      id: 1,
-      col1: "john doe",
-      col2: "Jaafarabdulatheam@gmail.com",
-      col3: "teacher",
-    },
-    { id: 2, col1: "DataGridPro", col2: "aaaa", col3: "teacher" },
-    { id: 3, col1: "MUI", col2: "aaaa", col3: "teacher" },
-    {
-      id: 1,
-      col1: "john doe",
-      col2: "Jaafarabdulatheam@gmail.com",
-      col3: "teacher",
-    },
-    { id: 2, col1: "DataGridPro", col2: "aaaa", col3: "teacher" },
-    { id: 3, col1: "MUI", col2: "aaaa", col3: "teacher" },
-  ];
 
-  const columns = [
+  const columns = React.useMemo(
+    () => [
     {
-      field: "col1",
+      field: "fullName",
       headerName: "Full Name",
       flex: 1,
       editable: true,
       headerAlign: "center",
       align: "center",
+      
     },
     {
-      field: "col2",
+      field: "email",
       headerName: "Email",
       flex: 1,
       editable: true,
@@ -56,16 +52,40 @@ function UserInput(props) {
       align: "center",
     },
     {
-      field: "col3",
+      field: "role",
       headerName: "Role",
       flex: 1,
       editable: true,
       headerAlign: "center",
       align: "center",
     },
-  ];
+    {
+      field: "actions",
+      type: "actions",
+      editable: "false",
+      width: 80,
+      getActions: (params) => [
+        // eslint-disable-next-line react/jsx-key
+        <GridActionsCellItem
+          icon={<DeleteIcon />}
+          label="Delete"
+          onClick={deleteUser(params.id)}
+        />,
+      ],
+    },
+  ],[deleteUser]
+  )
   return (
     <div>
+      <form onSubmit={(event) => {
+          event.preventDefault();
+          const fullName = event.target.fullName.value
+          const email = event.target.Email.value
+          const role = event.target.Role.value
+          const newId = Math.max(Math.max(...users.map(item => item.id)) + 1, 1);
+          setUsers([...users, {id: newId, fullName: fullName, email: email, role: role}])
+          }}>
+            
       <div
         style={{
           height: 300,
@@ -78,8 +98,10 @@ function UserInput(props) {
           marginTop: "2%",
         }}
       >
+        
         <DataGrid
-          rows={rows}
+          id ='dt'
+          rows={users}
           density="compact"
           components={{
             Toolbar: CustomToolbar,
@@ -90,19 +112,23 @@ function UserInput(props) {
             borderRadius: "5%",
           }}
         />
+        
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
+          
         >
+          
           <TextField
-            id="Full-Name"
+            id="fullName"
             label="Full Name"
             variant="filled"
             margin="normal"
             size="small"
+            required = {true}
           />
           <TextField
             id="Email"
@@ -110,6 +136,7 @@ function UserInput(props) {
             variant="filled"
             margin="normal"
             size="small"
+            required = {true}
           />
           <TextField
             id="Role"
@@ -117,16 +144,19 @@ function UserInput(props) {
             variant="filled"
             margin="normal"
             size="small"
+            required = {true}
           />
           <button
-            type="Add User"
+            type="submit"
+            value="Submit"
             className="mt-6 flex w-addUser items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            
             >
             Add User
             </button>
+
         </div>
       </div>
+      </form>
 
       <footer style={{ display: "block" }}>
         <Box
@@ -144,7 +174,7 @@ function UserInput(props) {
             disabled={false}
             onClick={() => {
               {
-                props.setPage(props.page - 1);
+                setPage(page - 1);
               }
             }}
             text="Prev"
@@ -153,7 +183,7 @@ function UserInput(props) {
             disabled={false}
             onClick={() => {
               {
-                props.setPage(props.page + 1);
+                setPage(page + 1);
               }
             }}
             text="Next"

@@ -7,6 +7,8 @@ export default function textfield(props) {
       label={props.label}
       variant="filled"
       margin="normal"
+      required={props.required}
+      type = "text"
     />
   );
 }
