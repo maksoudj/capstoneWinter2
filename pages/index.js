@@ -26,7 +26,7 @@ function Parent(props) {
           formData={formData}
           setFormData={setFormData}
         />
-      ); 
+      );
     }
     if (page === 1) {
       return (
