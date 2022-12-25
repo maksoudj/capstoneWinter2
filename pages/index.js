@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
 import UserInputs from "../Components/User-Inputs";
+import Matching from "../Components/Matching";
 
 function Parent(props) {
   const [page, setPage] = useState(0);
@@ -37,6 +38,9 @@ function Parent(props) {
           setUsers={setUsers}
         />
       );
+    }
+    if (page === 2){
+      return (<Matching/>)
     }
   };
 

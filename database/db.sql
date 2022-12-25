@@ -5153,6 +5153,7 @@ insert into standards () values
 ("8.13","The student will identify existing cybersecurity concerns associated with Internet use and Internet-based systems andpotential options to address these issues.","Cybersecurity risks can take many forms and have many consequences. The consequences of hacking can be serious and depend onwhat level of access the hackers have achieved. Examples of cybersecurity breaches include the theft of social security and creditinformation from Experian and the hack of Sony Pictures by the North Korean government. Computer viruses (scripts that may behidden in existing files or programs) and other malware (malicious software installed on a computer) generally have two goals: topropagate from system to system and to perform some action on each system they infect. Similarly, denial-of-service attacks cancripple an online business for long periods of time, which can greatly affect a business’s financials. In eighth grade, students willexplore possible risks to the data involved in their use of the Internet. They will also explore the risks and cyber threats for whichcompanies plan and prepare.");
 
 create table essential_skills (
+  skill_id int AUTO_INCREMENT PRIMARY KEY,
   standard_id varchar (5) not null,
   description varchar(1000),
   foreign key (standard_id) references standards(standard_id)
@@ -5579,6 +5580,7 @@ insert into essential_skills() values
 
 
 create table essential_vocabulary (
+  vocab_id int AUTO_INCREMENT PRIMARY KEY,
   standard_id varchar (5) not null,
   vocab varchar(1000),
   foreign key (standard_id) references standards(standard_id)
@@ -5889,6 +5891,7 @@ insert into essential_vocabulary () values
 
 
 CREATE table essential_questions (
+  question_id int AUTO_INCREMENT PRIMARY KEY,
   standard_id varchar (5) not null,
   question varchar(1000),
   foreign key (standard_id) references standards(standard_id)
@@ -6339,3 +6342,24 @@ insert into essential_questions () values
 ("8.13","What are the different types of malware?"),
 ("8.13","What happens when a phisher steals one’s personal information?"),
 ("8.13","What can happen to a website or server during a denial-of-service attack?");
+
+
+create table SOL_Form(
+  form_id int not null,
+  school_division_id int,
+  grade_id int,
+  primary key (form_id),
+  FOREIGN key (school_division_id) references school_division(school_division_id),
+  FOREIGN key (grade_id) references grades(grade_id)
+);
+
+create table users(
+  user_id int not null,
+  user_first_name varchar(255) not null,
+  user_last_name varchar(255) not null,
+  user_email varchar(255) not null,
+  user_role varchar(255) not null,
+  form_id int not null,
+  primary key (user_id),
+  FOREIGN key (form_id) references SOL_Form(form_id)
+);
