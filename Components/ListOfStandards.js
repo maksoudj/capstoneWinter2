@@ -1,8 +1,10 @@
 import { FixedSizeList as List } from 'react-window';
  import StandardCard from './StandardCard';
  import classes from './ListOfStandards.module.css'
+ import DropArea from "./DropArea";
+
 const Column = ({ index, style }) => (
-  <div style={style}><StandardCard/> {index}</div>
+  <div style={style}><StandardCard/></div>
 );
  
 export default function list() {

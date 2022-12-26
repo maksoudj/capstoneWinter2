@@ -1,9 +1,11 @@
 
+import DropArea from "./DropArea";
 function moreHandler(){
 }
 
 export default function StandardCard() {
   return (
+    <div>
     <div className="overflow-hidden bg-white shadow sm:rounded-lg ml-10">
       <div className="px-4 py-5 sm:px-6">
         <h3 className="text-lg font-medium leading-6 text-gray-900">
@@ -29,6 +31,9 @@ export default function StandardCard() {
             </button>
             </div>
       </div>
+      
+      </div>
+      <DropArea/>
     </div>
   );
 }
