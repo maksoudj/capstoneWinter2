@@ -40,7 +40,9 @@ function Parent(props) {
       );
     }
     if (page === 2){
-      return (<Matching/>)
+      return (<Matching
+        page={page}
+        setPage={setPage}/>);
     }
   };
 

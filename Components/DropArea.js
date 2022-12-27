@@ -1,6 +1,6 @@
 import SubjectCircle from "./SubjectCircle"
 import DropCircle from "./DropCircle"
-import AddedSubjectsList from "./AddedSubjectsList"
+import AddedSubjectButton from "./AddedSubjectButton"
 export default function DropArea() {
     
   return (

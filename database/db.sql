@@ -6344,13 +6344,33 @@ insert into essential_questions () values
 ("8.13","What can happen to a website or server during a denial-of-service attack?");
 
 
-create table SOL_Form(
-  form_id int not null,
-  school_division_id int,
-  grade_id int,
-  primary key (form_id),
-  FOREIGN key (school_division_id) references school_division(school_division_id),
-  FOREIGN key (grade_id) references grades(grade_id)
+
+
+create table subjects(
+    subject_id int not null auto_increment,
+    subject_name varchar(255) not null,
+    primary key (subject_id)
+);
+
+insert into subjects(subject_name) values
+('Math'),
+('Science'),
+('English'),
+('Social Studies')
+;
+
+
+create table session_form(
+    sessions_id int not null auto_increment,
+    school_division_id int not null,
+    grade_id int not null,
+    date_month int not null,
+    date_day int not null,
+    date_year int not null,
+    date_date date not null,
+    primary key (sessions_id),
+    foreign key (school_division_id) references school_division (school_division_id),
+    foreign key (grade_id) references grades (grade_id)
 );
 
 create table users(
@@ -6361,5 +6381,17 @@ create table users(
   user_role varchar(255) not null,
   form_id int not null,
   primary key (user_id),
-  FOREIGN key (form_id) references SOL_Form(form_id)
+  FOREIGN key (form_id) references session_form(sessions_id)
+);
+
+create table matched(
+  match_id int not null auto_increment,
+  sessions_id int not null,
+  standard_id varchar(5) not null,
+  subject_id int not null,
+  match_note varchar(2000),
+  primary key (match_id, sessions_id, standard_id, subject_id),
+  foreign key (sessions_id) references session_form (sessions_id),
+  foreign key (standard_id) references standards (standard_id),
+  foreign key (subject_id) references subjects (subject_id)
 );
