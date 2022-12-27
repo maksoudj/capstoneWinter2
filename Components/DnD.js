@@ -28,7 +28,6 @@ function DnD() {
     <div className = "flex justify-between p-4"> {subjectList.map((subject) => {return <SubjectCircle subject = {subject.subject} key = {subject.id} id = {subject.id}/>})}</div>
     </div>
     </>
-
   )
 }
 
