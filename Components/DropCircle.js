@@ -4,6 +4,7 @@ import { useDrop } from "react-dnd";
 import SubjectCircle from "./SubjectCircle";
 import AddedSubjectButton from "./AddedSubjectButton";
 import { useMemo, useCallback } from "react";
+
 const subjectList = [
   {
     id: 1,
@@ -52,7 +53,7 @@ function DropCircle() {
 
   return (
     <div className="flex flex-row m-2">
-      {addedSubjects.map((subject) => AddedSubjectButton(subject))}
+      {addedSubjects.map((subject) => <AddedSubjectButton subject = {subject} key = {subject.id}/>)}
       <div
         ref={drop}
         className="relative flex items-center justify-center rounded-full w-[70px] h-[70px] transform transition-all outline-dashed"

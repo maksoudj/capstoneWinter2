@@ -28,7 +28,8 @@
     "react-icons": "^4.7.1",
     "react-window": "^1.8.8",
     "serverless-mysql": "^1.5.4",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "tw-elements": "^1.0.0-alpha13"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
