@@ -11,6 +11,8 @@ drop table if exists essential_skills;
 drop table if exists essential_vocabulary;
 drop table if exists essential_questions;
 drop table if exists standards;
+drop procedure if exists getStandardByGrade;
+
 
 
 --create schools
@@ -5009,7 +5011,6 @@ BEGIN
     SELECT schools.school_name FROM schools left join school_division on schools.school_id = school_division.school_id left join divisions on school_division.division_id = divisions.division_id where divisions.division_name like concat('%',trim(division),'%');
 END;
 
-    SELECT schools.school_name FROM schools left join school_division on schools.school_id = school_division.school_id left join divisions on school_division.division_id = divisions.division_id where divisions.division_name like concat('%',trim("Henrico"),'%');
 
 
 create table standards(
@@ -6396,3 +6397,9 @@ create table matched(
   foreign key (standard_id) references standards (standard_id),
   foreign key (subject_id) references subjects (subject_id)
 );
+
+CREATE PROCEDURE getStandardByGrade(IN grade VARCHAR(1))
+BEGIN
+    SELECT * FROM standards where standard_id like concat(trim(grade),'%') order by cast(substring(standard_id,3) as decimal);
+END;
+

@@ -4,33 +4,26 @@ import classes from "./ListOfStandards.module.css";
 import DropArea from "./DropArea";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useContext, PureComponent } from "react";
+import DataContext from "../Context/FormContext";
 
-
-function StandardInfoApi() {
- 
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await axios.get("http://localhost:3000/api/Standard_info");
-      console.log(result.data);
-      console.log(result);
-      setData(result.data);
-    };
-    fetchData();
-  }, []);
-  
+function GetCardList(data){
+  return data.map((standard) => {return <StandardCard key = {standard.standard_id} standard_id = {standard.standard_id} description = {standard.description} context_of_the_standard = {standard.context_of_the_standard} />})
 }
 
-export default function list() {
-  const size = 10;
-
-  const SIA = StandardInfoApi();
+export default function list({data}) {
+  const cardsList = GetCardList(data)
+  console.log(cardsList)
   
+  console.log(data)
+
+  const size = data.length
+  console.log(data)
+  //console.log(SIA)
 
   const Column = ({ index, style }) => (
     <div style={style}>
-      <StandardCard />
+      {cardsList[index]}
     </div>
   );
 

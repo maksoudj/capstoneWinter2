@@ -1,6 +1,5 @@
 import { TextField } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-
 import {
   DataGrid,
   GridActionsCellItem,
@@ -10,8 +9,11 @@ import {
 import Box from "@mui/material/Box";
 import LinkButton from "./LinkButton";
 import React from "react";
+import { useContext } from "react";
+import DataContext from "../Context/FormContext";
 
-function UserInput({ page, setPage, users, setUsers }) {
+function UserInput({ page, setPage}) {
+  const {users, setUsers} = useContext(DataContext)
   const deleteUser = React.useCallback(
     (id) => () => {
       setTimeout(() => {

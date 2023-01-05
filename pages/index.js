@@ -10,13 +10,8 @@ import UserInputs from "../Components/User-Inputs";
 import Matching from "../Components/Matching";
 
 function Parent(props) {
+  
   const [page, setPage] = useState(0);
-  const [users, setUsers] = useState([]);
-  const [formData, setFormData] = useState({
-    selectedDivision: null,
-    selectedSchool: null,
-    selectedGrade: null,
-  });
   const pageDisplay = () => {
     if (page === 0) {
       return (
@@ -24,8 +19,6 @@ function Parent(props) {
           schoolsAndDivisions={props.schoolsAndDivisions}
           page={page}
           setPage={setPage}
-          formData={formData}
-          setFormData={setFormData}
         />
       );
     }
@@ -34,8 +27,6 @@ function Parent(props) {
         <UserInputs
           page={page}
           setPage={setPage}
-          users={users}
-          setUsers={setUsers}
         />
       );
     }
