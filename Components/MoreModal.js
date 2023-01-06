@@ -1,48 +1,60 @@
 import React from "react";
 
-function MoreModal() {
+export default function Modal({setIsOpen}) {
   return (
-    <div className="relative">
-      <div className="inset-0 z-10 w-full h-screen overflow-y-auto">
-        <div className="absolute inset-0 w-full h-full bg-gray-500 opacity-75"></div>
-        <div className="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-          <span
-            className="hidden sm:inline-block sm:align-middle sm:h-screen"
-            aria-hidden="true"
-          ></span>
+    
+        <>
           <div
-            className="relative inline-block overflow-hidden transition-all transform sm:align-middle sm:max-w-lg"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-headline"
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-30 outline-none focus:outline-none"
           >
-            <div>
-              <div className="rounded-lg p-8 bg-white shadow">
-                <div className="absolute right-4 top-4">
-                  <button className="bg-transparent border border-transparent"></button>
+            <div className="relative w-auto my-6 mx-auto max-w-3xl">
+              {/*content*/}
+              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                {/*header*/}
+                <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                  <h3 className="text-3xl font-semibold">
+                    Modal Title
+                  </h3>
+                  <button
+                    className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                      X
+                    </span>
+                  </button>
                 </div>
-                <div className="p-4">
-                  <div className="mb-4 text-center opacity-90">
-                    <a href="#" className="relative block"></a>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-2xl text-gray-800 dark:text-white">
-                      Charlie
-                    </p>
-                    <p className="text-xl font-light text-gray-500 dark:text-gray-200">
-                      Lead dev
-                    </p>
-                    <p className="max-w-xs py-4 font-light text-gray-500 text-md dark:text-gray-400"></p>
-                  </div>
-                  <div className="flex items-center justify-between pt-8 mx-auto text-gray-500 border-t border-gray-200 w-44"></div>
+                {/*body*/}
+                <div className="relative p-6 flex-auto">
+                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
+                    I always felt like I could do anything. That’s the main
+                    thing people are controlled by! Thoughts- their perception
+                    of themselves! They're slowed down by their perception of
+                    themselves. If you're taught you can’t do anything, you
+                    won’t do anything. I was taught I could do everything.
+                  </p>
+                </div>
+                {/*footer*/}
+                <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                  <button
+                    className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Close
+                  </button>
+                  <button
+                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Save Changes
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+          <div className="opacity-25 fixed inset-0 z-20 bg-black"></div>
+        </>
   );
 }
-
-export default MoreModal;

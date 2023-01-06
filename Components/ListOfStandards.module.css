@@ -1,3 +1,9 @@
-.noScroll::-webkit-scrollbar {
+.horizontalList::-webkit-scrollbar {
     display: none;
+  }
+  .horizontalList{
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    height: 66vh;
   }

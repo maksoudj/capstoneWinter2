@@ -24,7 +24,7 @@ function DnD() {
     const [addedSubjects,setAddedSubjects] = useState([])
   return (
     <>
-    <div className="mx-auto  w-[780px] rounded-lg bg-slate-500 font-serif text-black shadow-xl">
+    <div className="mx-auto  w-[780px] rounded-lg bg-slate-500 font-serif shadow-xl">
     <div className = "flex justify-between p-4"> {subjectList.map((subject) => {return <SubjectCircle subject = {subject.subject} key = {subject.id} id = {subject.id}/>})}</div>
     </div>
     </>
