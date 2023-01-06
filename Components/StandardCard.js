@@ -10,7 +10,7 @@ export default function StandardCard(props) {
   console.log(props);
   return (
     <div>
-      {isOpen && <MoreModal setIsOpen={setIsOpen}/>}
+      {isOpen && <MoreModal setIsOpen={setIsOpen} standard_id = {props.standard_id} description = {props.description} context_of_the_standard = {props.context_of_the_standard}/>}
         <div >
           <div className="overflow-hidden bg-white shadow sm:rounded-lg ml-10"  style={{ width: cardWidth} }>
             <div className="px-4 pt-5 sm:px-6">

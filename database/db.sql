@@ -6402,9 +6402,3 @@ CREATE PROCEDURE getStandardByGrade(IN grade VARCHAR(1))
 BEGIN
     SELECT * FROM standards where standard_id like concat(trim(grade),'%') order by cast(substring(standard_id,3) as decimal);
 END;
-
-CREATE PROCEDURE getEssentialsById(IN id VARCHAR(5))
-BEGIN
-    SELECT essential_questions.question, essential_vocabulary.vocab, essential_skills.description FROM essential_questions left join essential_vocabulary on essential_questions.standard_id = essential_vocabulary.standard_id left join essential_skills on essential_questions.standard_id = essential_skills.standard_id where essential_questions.standard_id = id;
-END;
-
