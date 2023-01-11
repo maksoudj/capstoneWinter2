@@ -2,7 +2,6 @@ import DropArea from "./DropArea";
 import { useState } from "react";
 import MoreModal from "./MoreModal";
 
-function moreHandler() {}
 
 export default function StandardCard(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +11,7 @@ export default function StandardCard(props) {
     <div>
       {isOpen && <MoreModal setIsOpen={setIsOpen} standard_id = {props.standard_id} description = {props.description} context_of_the_standard = {props.context_of_the_standard}/>}
         <div >
-          <div className="overflow-hidden bg-white shadow sm:rounded-lg ml-10"  style={{ width: cardWidth} }>
+          <div className="overflow-hidden bg-white shadow sm:rounded-lg ml-10 mb-5"  style={{ width: cardWidth} }>
             <div className="px-4 pt-5 sm:px-6">
               <h3 className="text-lg font-medium leading-6 text-gray-900">
                 {props.standard_id}
@@ -43,7 +42,7 @@ export default function StandardCard(props) {
               </div>
             </div>
           </div>
-          <DropArea />
+          <DropArea standard_id = {props.standard_id}/>
         </div>
       
     </div>

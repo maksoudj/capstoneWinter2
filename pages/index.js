@@ -8,9 +8,13 @@ import Image from "next/image";
 import axios from "axios";
 import UserInputs from "../Components/User-Inputs";
 import Matching from "../Components/Matching";
+import { useContext } from "react";
+import DataContext from "../Context/FormContext";
 
 function Parent(props) {
-  
+  const {subjectList, setSubjectList } = useContext(DataContext)
+  setSubjectList(props.schoolsAndDivisions.subjectList)
+  console.log(subjectList)
   const [page, setPage] = useState(0);
   const pageDisplay = () => {
     if (page === 0) {

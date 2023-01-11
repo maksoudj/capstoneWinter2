@@ -7,7 +7,8 @@ export default async function handler(req, res) {
         const schools = await pool.query("SELECT school_name FROM schools");
         const divisions = await pool.query("select division_name from divisions");
         const grades = await pool.query("select grade_level from grades");
-        return res.status(200).json({schools,divisions, grades});
+        const subjectList = await pool.query("select * from subjects")
+        return res.status(200).json({schools,divisions, grades, subjectList});
         }
         catch(error){
             return res.status(500).json({ error });

@@ -1,6 +1,5 @@
 import ListOfStandards from "./ListOfStandards";
 import DnD from "./DnD";
-import SubjectCircle from "./SubjectCircle";
 import Box from "@mui/material/Box";
 import LinkButton from "./LinkButton";
 import { useContext,useState, useEffect } from "react";
@@ -18,6 +17,7 @@ export default function Matching({page, setPage}) {
   }
     const {formData} = useContext(DataContext)
     const {setGradeStandards} = useContext(DataContext)
+
     let selectedGrade = formData.selectedGrade
     const firstCharOfGrade = selectedGrade[0]
     console.log(selectedGrade)
@@ -32,7 +32,6 @@ export default function Matching({page, setPage}) {
        };
        fetchData()
      },[]);
-     console.log(data)
      if (data.length === 0){
       return <div></div>
      }

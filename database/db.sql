@@ -6347,10 +6347,9 @@ insert into essential_questions () values
 
 
 
-
 create table subjects(
-    subject_id int not null auto_increment,
-    subject_name varchar(255) not null,
+    id int not null auto_increment,
+    subject varchar(255) not null,
     primary key (subject_id)
 );
 
@@ -6397,6 +6396,8 @@ create table matched(
   foreign key (standard_id) references standards (standard_id),
   foreign key (subject_id) references subjects (subject_id)
 );
+
+
 
 CREATE PROCEDURE getStandardByGrade(IN grade VARCHAR(1))
 BEGIN

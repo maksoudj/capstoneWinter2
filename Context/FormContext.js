@@ -10,9 +10,11 @@ export const DataProvider = ({children}) => {
         selectedGrade: null,
       });
       const [gradeStandards,setGradeStandards] = useState({})
+      const [matching, setMatching] = useState({})
+      const [subjectList,setSubjectList] = useState([])
     return (
         <DataContext.Provider value = {{
-            users, setUsers, formData,setFormData,gradeStandards,setGradeStandards
+            users, setUsers, formData,setFormData,gradeStandards,setGradeStandards,matching,setMatching,subjectList,setSubjectList
         }}>
             {children}
         </DataContext.Provider>
