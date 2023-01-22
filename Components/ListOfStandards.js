@@ -11,7 +11,7 @@ export default function list({ data }) {
     return (
       <StandardCard
         key={standard.standard_id}
-        standard_id={standard.standard_id}
+        standard_id={standard.standard_id}  
         description={standard.description}
         context_of_the_standard={standard.context_of_the_standard}
       />

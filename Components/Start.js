@@ -20,7 +20,7 @@ function Start(props) {
   const grades = props.schoolsAndDivisions.grades.map(
     (grade) => grade.grade_level
     );
- // const [school, setSchool] = useState();
+ 
   useEffect(() => {
     const getSchools = async () => {
       console.log(formData.selectedDivision + "aaaa");
