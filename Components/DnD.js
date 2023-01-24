@@ -25,7 +25,7 @@ function DnD() {
       
                <button className="relative flex items-center justify-center rounded-full w-[70px] h-[70px] transform transition-all bg-gray-50 ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md" >
                 <div className="text-5xl">
-                  +
+                 +
                 </div>
                </button>
         </div>
