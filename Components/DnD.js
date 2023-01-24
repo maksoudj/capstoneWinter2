@@ -11,7 +11,7 @@ function DnD() {
     
   return (
     <>
-    <div className="mx-auto  w-[780px] rounded-lg bg-slate-500 font-serif shadow-xl outline outline-1">
+    <div className="mx-auto  w-[780px] rounded-full bg-slate-500 font-serif shadow-xl outline outline-1">
     <div className = "flex justify-between p-4"> {subjectList.map((subject) => {return <SubjectCircle subject = {subject.subject_name} key = {subject.subject_id} id = {subject.subject_id}/>})}</div>
     </div>
     </>

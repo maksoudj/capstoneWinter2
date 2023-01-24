@@ -16,7 +16,7 @@ export default function StandardCard(props) {
     <div>
       {isOpen && <MoreModal setIsOpen={setIsOpen} standard_id = {props.standard_id} description = {formattedDescription} context_of_the_standard = {formattedContext}/>}
         <div >
-          <div className="overflow-hidden bg-white shadow sm:rounded-lg ml-10 mb-5"  style={{ width: cardWidth} }>
+          <div className="overflow-hidden bg-white shadow sm:rounded-3xl ml-10 mb-5"  style={{ width: cardWidth} }>
             <div className="px-4 pt-5 sm:px-6">
               <h3 className="text-lg font-medium leading-6 text-gray-900">
                 {props.standard_id}
