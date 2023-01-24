@@ -1,6 +1,4 @@
-.horizontalList::-webkit-scrollbar {
-    display: none;
-  }
+
   .horizontalList{
     display: flex;
     flex-direction: row;
