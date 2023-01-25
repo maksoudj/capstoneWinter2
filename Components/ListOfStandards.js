@@ -3,13 +3,13 @@ import classes from "./ListOfStandards.module.css";
 import DropArea from "./DropArea";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useContext, PureComponent } from "react";
+import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 import SimpleBarReact from "simplebar-react";
-
 import "simplebar-react/dist/simplebar.min.css";
 
-export default function list({ data }) {
+export default function List({ data }) {
+  const {scrollVisibility} = useContext(DataContext)
   const cardsList = data.map((standard) => {
     return (
       <StandardCard
@@ -24,11 +24,11 @@ export default function list({ data }) {
   console.log(data);
 
   return (
-    <div className="mt-6 scroll">
-        <SimpleBarReact 
-        forceVisible = "true"
+    <div className="mt-6">
+        <SimpleBarReact style={{zIndex : 5 , overflow : scrollVisibility}}
+        
         >
-        <div className="flex flex-row h-[66vh]">
+        <div className="flex flex-row h-[66vh] z-0">
         {cardsList}
         </div>
         </SimpleBarReact>
