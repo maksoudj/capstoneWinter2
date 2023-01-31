@@ -11,10 +11,18 @@ function AddedSubjectButton({ subject, standard_id }) {
     const newSubjects = matching[standard_id].filter(
       (subjects) => subjects.subject_id != subject.subject_id
     );
-    setMatching({ ...matching, [standard_id]: newSubjects });
+    if (newSubjects.length == 0) {
+      const matchingCopy = { ...matching };
+      delete matchingCopy[standard_id];
+      setMatching(matchingCopy);
+      console.log(matching);
+    } else {
+      setMatching({ ...matching, [standard_id]: newSubjects });
+      console.log(matching);
+    }
   }
   console.log(subject);
-
+  console.log(matching);
   console.log(standard_id);
   return (
     <div>

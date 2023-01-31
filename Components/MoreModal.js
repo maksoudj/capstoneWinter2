@@ -14,45 +14,41 @@ export default function MoreModal({
 }) {
   const { setScrollVisibility } = useContext(DataContext);
   setScrollVisibility("hidden");
-  const [questions, setQuestions] = useState(<div>None</div>);
-  const [skills, setSkills] = useState(<div>None</div>);
-  const [vocab, setVocab] = useState(<div>None</div>);
-  useEffect(() => {
-    const getEssentials = async () => {
-      await axios
-        .post("http://localhost:3000/api/StandardEssentials", {
-          standard_id: standard_id,
-        })
-        .then((response) => {
-          if (response.data[0].length > 0) {
-            setQuestions(
-              response.data[0].map((question, index) => {
-                return <li key={index}>{question.question}</li>;
-              })
-            );
-          }
-          if (response.data[1].length > 0) {
-            setSkills(
-              response.data[1].map((skill, index) => {
-                return <li key={index}>{skill.description}</li>;
-              })
-            );
-          }
-          if (response.data[2].length > 0) {
-            setVocab(
-              response.data[2].map((vocab, index) => {
-                return <li key={index}>{vocab.vocab}</li>;
-              })
-            );
-          }
-        });
-    };
-    getEssentials();
-  }, [standard_id]);
+  const {questions, setQuestions} = useContext(DataContext);
+  const {skills, setSkills} = useContext(DataContext);
+  const {vocab, setVocab} = useContext(DataContext);
+  
 
   console.log(skills);
   console.log(questions);
   console.log(vocab);
+
+  if (vocab.filter(vocab => vocab.standard_id === standard_id).length === 0){
+    var fVocab = <div>None</div>
+  }
+  else{
+    var fVocab = vocab.filter(vocab => vocab.standard_id === standard_id).map((vocab, index) => {
+      return <li key={index}>{vocab.vocab}</li>;
+    })
+  }
+
+  if (skills.filter(skills => skills.standard_id === standard_id).length === 0){
+    var fSkills = <div>None</div>
+  }
+  else{
+    var fSkills = skills.filter(skills => skills.standard_id === standard_id).map((skill, index) => {
+      return <li key={index}>{skill.description}</li>;
+    })
+  }
+
+  if (questions.filter(questions => questions.standard_id === standard_id).length === 0){
+    var fQuestions = <div>None</div>
+  }
+  else{
+    var fQuestions = questions.filter(questions => questions.standard_id === standard_id).map((question, index) => {
+      return <li key={index}>{question.question}</li>;
+    })
+  }
 
   return (
     <>
@@ -89,15 +85,15 @@ export default function MoreModal({
               </p>
               <h3 className="text-xl font-semibold">Essential Skills:</h3>
               <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                {skills}
+              {fSkills}
               </p>
               <h3 className="text-xl font-semibold">Essential Questions:</h3>
               <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                {questions}
+              {fQuestions}
               </p>
               <h3 className="text-xl font-semibold">Essential Vocabulary:</h3>
               <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                {vocab}
+              {fVocab}
               </p>
             </div>
             {/*footer*/}

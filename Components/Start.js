@@ -11,7 +11,7 @@ import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 
 function Start(props) {
-  const {formData, setFormData} = useContext(DataContext)
+  const {formData, setFormData, setMatching} = useContext(DataContext)
   console.log(props)
   const [schools, setSchools] = useState([]);
   const divisions = props.schoolsAndDivisions.divisions.map(
@@ -20,6 +20,9 @@ function Start(props) {
   const grades = props.schoolsAndDivisions.grades.map(
     (grade) => grade.grade_level
     );
+    useEffect(() => {
+      setMatching({})
+    },[formData, setMatching])
  
   useEffect(() => {
     const getSchools = async () => {
@@ -57,8 +60,6 @@ function Start(props) {
             options={grades}
             value={formData.selectedGrade}
             onChange={(event, value) => setFormData({...formData, selectedGrade: value})}
-
-
           />
         </div>
         <div>

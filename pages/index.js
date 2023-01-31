@@ -8,6 +8,7 @@ import Image from "next/image";
 import axios from "axios";
 import UserInputs from "../Components/User-Inputs";
 import Matching from "../Components/Matching";
+import OverView from "../Components/OverView";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 
@@ -36,6 +37,11 @@ function Parent(props) {
     }
     if (page === 2){
       return (<Matching
+        page={page}
+        setPage={setPage}/>);
+    }
+    if (page === 3){
+      return (<OverView
         page={page}
         setPage={setPage}/>);
     }
