@@ -15,6 +15,10 @@ drop table if exists essential_vocabulary;
 drop table if exists essential_questions;
 drop table if exists standards;
 drop procedure if exists getStandardByGrade;
+drop procedure if exists getSkillsByGrade;
+drop procedure if exists getQuestionsByGrade;
+drop procedure if exists getVocabularyByGrade;
+
 
 
 
@@ -6397,3 +6401,20 @@ CREATE PROCEDURE getStandardByGrade(IN grade VARCHAR(1))
 BEGIN
     SELECT * FROM standards where standard_id like concat(trim(grade),'%') order by cast(substring(standard_id,3) as decimal);
 END;
+
+CREATE PROCEDURE getQuestionsByGrade(IN grade VARCHAR(1))
+BEGIN
+    SELECT * FROM essential_questions where standard_id like concat(trim(grade),'%') order by cast(substring(standard_id,3) as decimal);
+END;
+
+CREATE PROCEDURE getSkillsByGrade(IN grade VARCHAR(1))
+BEGIN
+    SELECT * FROM essential_skills where standard_id like concat(trim(grade),'%') order by cast(substring(standard_id,3) as decimal);
+END;
+
+CREATE PROCEDURE getVocabByGrade(IN grade VARCHAR(1))
+BEGIN
+    SELECT * FROM essential_vocabulary where standard_id like concat(trim(grade),'%') order by cast(substring(standard_id,3) as decimal);
+END;
+
+

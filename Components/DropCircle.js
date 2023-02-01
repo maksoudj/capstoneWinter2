@@ -61,7 +61,7 @@ catch(error){
         ref={drop}
         className="relative flex items-center justify-center rounded-full w-[70px] h-[70px] transform transition-all outline-dashed"
       >
-        <p className="text-white text-xs text-center">Add a Subject</p>
+        <p className="text-white text-sm text-center">Add Subject</p>
       </div>
     </div>
   );

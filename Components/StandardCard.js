@@ -1,17 +1,17 @@
 /* eslint-disable react/jsx-key */
 import DropArea from "./DropArea";
-import { useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import MoreModal from "./MoreModal";
-
+import axios from "axios";
+import DataContext from "../Context/FormContext";
 
 export default function StandardCard(props) {
   const [isOpen, setIsOpen] = useState(false);
   let cardWidth = window.innerWidth / 3;
   const formattedDescription = props.description.split('\n').map(str => <p>{str}</p>);
   const formattedContext = props.context_of_the_standard.split('\n').map(str => <p>{str}</p>);
+  
 
-
-  console.log(props);
   return (
     <div>
       {isOpen && <MoreModal setIsOpen={setIsOpen} standard_id = {props.standard_id} description = {formattedDescription} context_of_the_standard = {formattedContext}/>}
@@ -22,13 +22,13 @@ export default function StandardCard(props) {
                 {props.standard_id}
               </h3>
             </div>
-            <div className="mt-1 px-4 max-w-2xl text-sm text-gray-500 overflow-auto box-border h-20">
+            <div className="mt-1 px-4 max-w-2xl text-sm text-gray-900 overflow-auto box-border h-20">
               description: <br />
               {formattedDescription}
             </div>
             <div className="border-t border-gray-200">
               <div className="bg-gray-50 px-4 py-5 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">
+                <dt className="text-sm font-medium text-gray-900">
                   context of the standard:
                 </dt>
               </div>

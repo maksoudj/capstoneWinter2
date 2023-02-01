@@ -13,9 +13,12 @@ export const DataProvider = ({children}) => {
       const [matching, setMatching] = useState({})
       const [subjectList,setSubjectList] = useState([])
       const [scrollVisibility,setScrollVisibility] = useState("visible")
+      const [questions, setQuestions] = useState();
+      const [skills, setSkills] = useState();
+      const [vocab, setVocab] = useState();
     return (
         <DataContext.Provider value = {{
-            users, setUsers, formData,setFormData,gradeStandards,setGradeStandards,matching,setMatching,subjectList,setSubjectList,scrollVisibility,setScrollVisibility
+            users, setUsers, formData,setFormData,gradeStandards,setGradeStandards,matching,setMatching,subjectList,setSubjectList,scrollVisibility,setScrollVisibility,questions, setQuestions,skills,setSkills,vocab, setVocab
         }}>
             {children}
         </DataContext.Provider>

@@ -20,7 +20,6 @@ export default function List({ data }) {
       />
     );
   });
-  console.log(cardsList);
   console.log(data);
 
   return (
