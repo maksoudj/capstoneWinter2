@@ -6,11 +6,11 @@ import DataContext from "../Context/FormContext";
 import PopoverButton  from "./Popover";
 function DnD() {
   const [addedSubjects, setAddedSubjects] = useState([]);
-  const { subjectList, setSubjectList } = useContext(DataContext);
+  const { subjectList, setSubjectList,updateSubjects,setUpdateSubjects } = useContext(DataContext);
   const [openSubject, setOpenSubject] = useState(false);
-
   useEffect(() => {
-      
+    if (updateSubjects){
+      console.log(subjectList)
     setAddedSubjects(() => {return subjectList.map((subject) => {
       return (
         <SubjectCircle
@@ -19,10 +19,10 @@ function DnD() {
           id={subject.subject_id}
         />
       );
-    })});
+    })})
+    setUpdateSubjects(false)
+  }
   });
-  
-
   return (
     <>
       <div className="mx-auto  w-[780px] rounded-full bg-slate-500 font-serif shadow-xl outline outline-1 z-20">

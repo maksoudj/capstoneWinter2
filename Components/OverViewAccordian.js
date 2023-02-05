@@ -35,9 +35,7 @@ export default function OverViewAccordian({
   const { skills, setSkills } = useContext(DataContext);
   const { vocab, setVocab } = useContext(DataContext);
 
-  console.log(skills);
-  console.log(questions);
-  console.log(vocab);
+ 
 
   if (vocab.filter((vocab) => vocab.standard_id === standard_id).length === 0) {
     var fVocab = <div>None</div>;

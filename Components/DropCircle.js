@@ -54,14 +54,14 @@ catch(error){
    matches = <div></div>
 }
   return (
-    <div className="flex flex-row m-2">
+    <div className="flex flex-row m-2 ">
       {
         matches}
       <div
         ref={drop}
         className="relative flex items-center justify-center rounded-full w-[70px] h-[70px] transform transition-all outline-dashed"
       >
-        <p className="text-white text-sm text-center">Add Subject</p>
+        <p className="text-white text-sm text-center">Add a Subject</p>
       </div>
     </div>
   );
