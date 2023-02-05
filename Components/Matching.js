@@ -5,6 +5,7 @@ import LinkButton from "./LinkButton";
 import { useContext,useState, useEffect } from "react";
 import DataContext from "../Context/FormContext";
 import axios from "axios";
+import ProgressBar from "./ProgressBar";
 
 
 
@@ -74,7 +75,7 @@ export default function Matching({page, setPage}) {
             }}
             text="Prev"
           />
-          
+          <ProgressBar />
           <LinkButton
             disabled={false}
             onClick={() => {
