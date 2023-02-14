@@ -20,13 +20,10 @@ function Start(props) {
   const grades = props.schoolsAndDivisions.grades.map(
     (grade) => grade.grade_level
     );
-    useEffect(() => {
-      setMatching({})
-    },[formData, setMatching])
+    
  
   useEffect(() => {
     const getSchools = async () => {
-      console.log(formData.selectedDivision + "aaaa");
       const response = await axios.post("http://localhost:3000/api/Schools", 
         {selectedDivision: formData.selectedDivision}
       );

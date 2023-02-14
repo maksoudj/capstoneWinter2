@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 import LinkButton from "../Components/LinkButton";
-import Start from "../Components/start";
+import Start from "../Components/Start";
 import logo from "../images/image4.svg";
 //import { FormControl } from "@mui/material";
 import { useEffect, useState } from "react";
@@ -13,10 +13,15 @@ import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 
 function Parent(props) {
-  const {subjectList, setSubjectList } = useContext(DataContext)
+  const {subjectList, setSubjectList, formData,setMatching} = useContext(DataContext)
   setSubjectList(props.schoolsAndDivisions.subjectList)
   console.log(subjectList)
   const [page, setPage] = useState(0);
+  
+  useEffect(() => {
+    setMatching({})
+  },[formData])
+
   const pageDisplay = () => {
     if (page === 0) {
       return (

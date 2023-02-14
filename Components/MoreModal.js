@@ -16,12 +16,13 @@ export default function MoreModal({
   setScrollVisibility("hidden");
   const {questions, setQuestions} = useContext(DataContext);
   const {skills, setSkills} = useContext(DataContext);
-  const {vocab, setVocab} = useContext(DataContext);
-  
+  const {vocab, setVocab , setUpdateSubjects} = useContext(DataContext);
+  useEffect(()=> {
+    setUpdateSubjects(true)
 
-  console.log(skills);
-  console.log(questions);
-  console.log(vocab);
+  },[])
+
+ 
 
   if (vocab.filter(vocab => vocab.standard_id === standard_id).length === 0){
     var fVocab = <div>None</div>

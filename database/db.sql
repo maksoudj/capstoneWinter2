@@ -4998,7 +4998,7 @@ insert into grades () values
 (1010, "11th"),
 (1011, "12th");
 
-
+select * from schools;
 
 create table grade_school(
   grade_school_id int not null primary key,
@@ -5010,8 +5010,10 @@ create table grade_school(
 
   CREATE PROCEDURE getSchoolsByDivision(IN division VARCHAR(100))
 BEGIN
-    SELECT schools.school_name FROM schools left join school_division on schools.school_id = school_division.school_id left join divisions on school_division.division_id = divisions.division_id where divisions.division_name like concat('%',trim(division),'%');
+    SELECT schools.school_name FROM schools left join school_division on schools.school_id = school_division.school_id left join divisions on school_division.division_id = divisions.division_id where divisions.division_name like division;
 END;
+
+drop procedure getSchoolsByDivision;
 
 
 

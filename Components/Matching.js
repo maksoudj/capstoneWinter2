@@ -62,6 +62,7 @@ export default function Matching({page, setPage}) {
             position: "fixed",
             bottom: "0",
             width: "100%",
+            alignItems: "flex-end"
           }}
         >
           <LinkButton
