@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
-import Note from "./note";
+import Note from "./Note";
 
 function AddedSubjectButton({ subject, standard_id }) {
   const [isNoteOpen, setIsNoteOpen] = useState(false);
