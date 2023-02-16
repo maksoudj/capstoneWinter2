@@ -4,6 +4,7 @@ import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 import { width } from "@mui/system";
 import AddButton from "./AddButton";
+import { object } from "prop-types";
 
 function Note({ subject, standard_id, setIsNoteOpen }) {
   const { setScrollVisibility, matching, setMatching } = useContext(DataContext);
@@ -15,13 +16,12 @@ function Note({ subject, standard_id, setIsNoteOpen }) {
 
   const Note = {
     ...subject,
-    Section_Note: event.target.Section_Note.value,
-    Add_Note: event.target.Add_Note.value,
+    section: event.target.Section_Note.value,
+    note: event.target.Add_Note.value,
   };
-  const ID1 = standard_id
-  const ID2 = subject.subject_name
+  
   const index = matching[standard_id].findIndex((subject2) => {return subject2.subject_id == subject.subject_id})
-  let edited_matching = matching[ID1].filter((subject2)=>subject2.subject_id != subject.subject_id)
+  let edited_matching = matching[standard_id].filter((subject2)=>subject2.subject_id != subject.subject_id)
   edited_matching.splice(index, 0, Note)
   setMatching({...matching, [standard_id]:edited_matching})
 
@@ -30,10 +30,15 @@ function Note({ subject, standard_id, setIsNoteOpen }) {
   console.log(Add_Note)
   console.log(matching)
   console.log(Note)
-  console.log(ID1)
-  console.log(ID2)
   console.log(edited_matching)
-  console.log(index)  
+  console.log(index)
+}
+let defSection = ''
+let defNote = ''
+if( matching[standard_id].filter(((subject2)=>subject2.subject_id==subject.subject_id)).length > 0 && matching[standard_id].filter(((subject2)=>subject2.subject_id==subject.subject_id))[0].hasOwnProperty('Note')){
+  console.log(Object.hasOwn( matching[standard_id].filter(((subject2)=>subject2.subject_id==subject.subject_id)),'Note'))
+  console.log(matching[standard_id].filter(((subject2)=>subject2.subject_id==subject.subject_id))[0]['Note']['section'])
+  defSection = matching[standard_id].filter(((subject2)=>subject2.subject_id==subject.subject_id))[0]['Note']['section']
 }
   return (
     <>
@@ -55,14 +60,16 @@ function Note({ subject, standard_id, setIsNoteOpen }) {
                   X
                 </div>
               </button>
+              
             </div>
             <form
+            
           onSubmit={(event) => {
           handleSubmit(event);
         }}
             >
               <div className = "top-0 " >
-
+          
               <div className = "flex justify-center">
               <TextField
               className = "w-[90%]"
@@ -71,10 +78,12 @@ function Note({ subject, standard_id, setIsNoteOpen }) {
               variant="filled"
               margin="normal"
               size="small"
+              defaultValue = {defSection}
               required={false}
               onKeyPress = {e=>{
                 if (e.key==="Enter") e.preventDefault()
               }}
+              
             />
             </div>
             <div className = "flex justify-center">
