@@ -57,6 +57,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
     else{
       setIsNoteAdded("Add Note")
     }
+    let subName = subject.subject_name + ' Standard'
     
   
 
@@ -69,7 +70,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
             {/*header*/}
             <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
               <h3 className="text-3xl font-semibold">
-                {standard_id}: {subject.subject_name}
+                CS {standard_id}: {subject.subject_name}
               </h3>
               <button
                 className="p-1 ml-auto bg-transparent border-0 text-black opacity-30 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -93,7 +94,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
                   <TextField
                     className="w-[90%]"
                     id="Section_Note"
-                    label="Section"
+                    label= {subName}
                     variant="filled"
                     margin="normal"
                     size="small"
