@@ -12,7 +12,7 @@ import ProgressBar from "./ProgressBar";
 export default function Matching({page, setPage}) {
   const {questions, setQuestions} = useContext(DataContext);
   const {skills, setSkills} = useContext(DataContext);
-  const {vocab, setVocab, setUpdateSubjects} = useContext(DataContext);
+  const {vocab, setVocab, setUpdateSubjects,gradeStandards} = useContext(DataContext);
   async function getStandards (){
     let result =  await axios.post("http://localhost:3000/api/Standard_info",{
       firstCharOfGrade
@@ -28,29 +28,12 @@ export default function Matching({page, setPage}) {
     console.log(formData);
     const [data, setData] = useState([]);
    
-     useEffect(() => {
-       const fetchData = async () => {
-         const result = await getStandards()
-         setData(result.data);
-       };
-       fetchData()
 
-     },[]);
-     if (data.length === 0){
-      return <div></div>
-     }
-     else{
-      console.log(data)
-
-      setGradeStandards(data[0][0])
-      setQuestions(data[1][0])
-      setSkills(data[2][0])
-      setVocab(data[3][0])
-     }
+     
 
   return (
     <div>
-      <ListOfStandards data = {data[0][0]}/>
+      <ListOfStandards data = {gradeStandards}/>
       <DnD/>
       <footer style={{ display: "block" }}>
         <Box

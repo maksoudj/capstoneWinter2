@@ -44,36 +44,38 @@ function OverView({ page, setPage }) {
     });
     console.log(subject.subject_id);
   });
-  standardsPerSubject = standardsPerSubject.filter((subjectBindings) => subjectBindings.standards.length != 0)
+  standardsPerSubject = standardsPerSubject.filter(
+    (subjectBindings) => subjectBindings.standards.length != 0
+  );
   console.log(standardsPerSubject);
 
   const overviewAccordionsData = [];
   console.log(standardsPerSubject)
-  standardsPerSubject.forEach((subject) => {
-      console.log(subject);
-      overviewAccordionsData.push(
-        <div>
-          <div className=" text-center flex justify-center pb-3">
-            <div className=" text-3xl py-2 bg-blue-gray-600 font-serif text-white px-8 rounded-xl">
-              {subject.subject_name}
-            </div>
+  standardsPerSubject.forEach((subjectMatch) => {
+    console.log(subjectMatch);
+    overviewAccordionsData.push(
+      <div>
+        <div className=" text-center flex justify-center pb-3">
+          <div className=" text-3xl py-2 bg-blue-gray-600 font-serif text-white px-8 rounded-xl">
+            {subjectMatch.subject_name}
           </div>
-          {subject.standards.map((standard) => {
-            return (
-              <ul key={standard}>
-                <OverViewAccordian
-                  standard_id={standard}
-                  listOfSubjects={matching[standard]}
-                  standardInfo={gradeStandards.filter(
-                    (standards) => standards.standard_id == standard
-                  )}
-                />
-              </ul>
-            );
-          })}
         </div>
-      );
-    
+        {subjectMatch.standards.map((standard) => {
+          return (
+            <ul key={standard}>
+              <OverViewAccordian
+                standard_id={standard}
+                standardInfo={gradeStandards.filter(
+                  (standards) => standards.standard_id == standard
+                )}
+                subject_name = {subjectMatch.subject_name}
+                
+              />
+            </ul>
+          );
+        })}
+      </div>
+    );
   });
 
   const componentRef = useRef();
@@ -83,20 +85,24 @@ function OverView({ page, setPage }) {
 
   return (
     <div>
-      <div >
-        <div className="hidden">
-          <ComponentToPrint standardsPerSubject = {standardsPerSubject} ref={componentRef} />
+      <div>
+        <div className="hidden  ">
+          <ComponentToPrint
+            standardsPerSubject={standardsPerSubject}
+            
+            ref={componentRef}
+          />
         </div>
         <div className="right-0 absolute">
-        <LinkButton
-          disabled={false}
-          onClick={() => {
-            {
-              handlePrint();
-            }
-          }}
-          text="Print / Download"
-        />
+          <LinkButton
+            disabled={false}
+            onClick={() => {
+              {
+                handlePrint();
+              }
+            }}
+            text="Print / Download"
+          />
         </div>
       </div>
       <div className="flex pt-5 flex-col items-center ">

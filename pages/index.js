@@ -13,14 +13,38 @@ import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 
 function Parent(props) {
-  const {subjectList, setSubjectList, formData,setMatching} = useContext(DataContext)
-  setSubjectList(props.schoolsAndDivisions.subjectList)
-  console.log(subjectList)
+  const { setGradeStandards } = useContext(DataContext);
+  const { subjectList, setSubjectList, formData, setMatching } =useContext(DataContext);
+  const {questions, setQuestions} = useContext(DataContext);
+  const {skills, setSkills} = useContext(DataContext);
+  const {vocab, setVocab} = useContext(DataContext);
+  setSubjectList(props.schoolsAndDivisions.subjectList);
+  console.log(subjectList);
   const [page, setPage] = useState(0);
+
   
+  if (formData.selectedGrade != null && formData.selectedGrade.length > 0) {
+  let selectedGrade = formData.selectedGrade;
+  var firstCharOfGrade = selectedGrade[0];
+  console.log(selectedGrade);
+  console.log(formData);
+  }
   useEffect(() => {
-    setMatching({})
-  },[formData])
+    
+    const fetchData = async () => {
+       return await axios.post("http://localhost:3000/api/Standard_info", {
+        firstCharOfGrade,
+      });
+    };
+    if (formData.selectedGrade != null){
+    fetchData().then((result) => {
+      setGradeStandards(result.data[0][0])
+      setQuestions(result.data[1][0])
+      setSkills(result.data[2][0])
+      setVocab(result.data[3][0])
+    })
+    }
+  }, [formData.selectedGrade]);
 
   const pageDisplay = () => {
     if (page === 0) {
@@ -33,28 +57,19 @@ function Parent(props) {
       );
     }
     if (page === 1) {
-      return (
-        <UserInputs
-          page={page}
-          setPage={setPage}
-        />
-      );
+      return <UserInputs page={page} setPage={setPage} />;
     }
-    if (page === 2){
-      return (<Matching
-        page={page}
-        setPage={setPage}/>);
+    if (page === 2) {
+      return <Matching page={page} setPage={setPage} />;
     }
-    if (page === 3){
-      return (<OverView
-        page={page}
-        setPage={setPage}/>);
+    if (page === 3) {
+      return <OverView page={page} setPage={setPage} />;
     }
   };
 
   return <div>{pageDisplay()}</div>;
 }
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data: schoolsAndDivisions } = await axios.get(
     "http://localhost:3000/api/Schools"
   );

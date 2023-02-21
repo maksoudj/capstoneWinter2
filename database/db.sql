@@ -17,7 +17,7 @@ drop table if exists standards;
 drop procedure if exists getStandardByGrade;
 drop procedure if exists getSkillsByGrade;
 drop procedure if exists getQuestionsByGrade;
-drop procedure if exists getVocabularyByGrade;
+drop procedure if exists getVocabByGrade;
 
 
 
@@ -28,6 +28,7 @@ create table schools (
     school_name varchar(255) not null,
     primary key (school_id)
 );
+
 insert into schools (school_id, school_name)
 values 
   (1000, "Charles City County Public Schools Division Office"),
@@ -4978,27 +4979,24 @@ insert into school_division (school_division_id,school_id,division_id) values
   (3378, 3378, 1087),
   (3379, 3379, 1087);
 
-
 create table grades (
   grade_id int not null primary key,
-  grade_level varchar(10)
+  grade_level varchar(20)
 );
 
 insert into grades () values
-(1000, "1st"),
-(1001, "2nd"),
-(1002, "3rd"),
-(1003, "4th"),
-(1004, "5th"),
-(1005, "6th"),
-(1006, "7th"),
-(1007, "8th"),
-(1008, "9th"),
-(1009, "10th"),
-(1010, "11th"),
-(1011, "12th");
+(1000, "Kindergarden"),
+(1001, "1st"),
+(1002, "2nd"),
+(1003, "3rd"),
+(1004, "4th"),
+(1005, "5th"),
+(1006, "6th"),
+(1007, "7th"),
+(1008, "8th");
 
-select * from schools;
+
+
 
 create table grade_school(
   grade_school_id int not null primary key,
@@ -5013,7 +5011,6 @@ BEGIN
     SELECT schools.school_name FROM schools left join school_division on schools.school_id = school_division.school_id left join divisions on school_division.division_id = divisions.division_id where divisions.division_name like division;
 END;
 
-drop procedure getSchoolsByDivision;
 
 
 

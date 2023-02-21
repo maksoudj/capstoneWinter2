@@ -27,15 +27,13 @@ function Icon({ id, open }) {
 
 export default function OverViewAccordian({
   standard_id,
-  listOfSubjects,
   standardInfo,
+  subject_name,
 }) {
   const [open, setOpen] = useState(0);
   const { questions, setQuestions } = useContext(DataContext);
   const { skills, setSkills } = useContext(DataContext);
-  const { vocab, setVocab } = useContext(DataContext);
-
- 
+  const { vocab, setVocab, matching } = useContext(DataContext);
 
   if (vocab.filter((vocab) => vocab.standard_id === standard_id).length === 0) {
     var fVocab = <div>None</div>;
@@ -78,14 +76,35 @@ export default function OverViewAccordian({
     .split("\n")
     .map((str) => <p>{str}</p>);
 
+  console.log(matching);
   console.log(standardInfo);
-  console.log(listOfSubjects);
   console.log(standard_id);
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
   };
 
+  let section = "";
+  let note = "";
+  section = matching[standard_id].find((subject2) => {
+    return (subject2.subject_name == subject_name);
+  }).section ?? ""
+
+  note = matching[standard_id].find((subject2) => {
+    return (subject2.subject_name == subject_name);
+  }).note ?? ""
+  if (section != ""){
+    section = "Section: " + section
+  }
+  var formattedNote = ""
+  if (note != ""){
+    note = "Note: " + note
+     formattedNote = note
+    .split("\n")
+    .map((str) => <p>{str}</p>);
+    formattedNote
+  }
+  console.log(note);
   return (
     <div className="pb-5">
       <Accordion
@@ -94,11 +113,16 @@ export default function OverViewAccordian({
         icon={<Icon id={1} open={open} />}
       >
         <AccordionHeader onClick={() => handleOpen(1)}>
-          <div className="justify-between flex flex-grow border-none pl-3 text-2xl">
-            <div>{standard_id}</div>
-            <div>
-            </div>
+          
+          <div className="pl-3 grow place-items-center grid grid-cols-4 justify-items-start self-start">
+            <div className="text-2xl   ">{standard_id}</div>
+            <div className="text-sm ">{section}</div>
+          <div className=" text-sm col-span-2">
+            {formattedNote}
           </div>
+          </div>
+          
+          
         </AccordionHeader>
         <AccordionBody>
           <div className="pl-3">

@@ -8,7 +8,7 @@ export default function AddButton(props) {
       type = "submit"
       variant="outlined"
     >
-      ADD
+     {props.text || "ADD"}
     </Button>
   );
 }

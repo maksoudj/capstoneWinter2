@@ -6,7 +6,9 @@ import Note from "./Note";
 
 function AddedSubjectButton({ subject, standard_id }) {
   const [isNoteOpen, setIsNoteOpen] = useState(false);
+  const [isNoteAdded,setIsNoteAdded] = useState("Add Note")
   const { matching, setMatching } = useContext(DataContext);
+
   function handleRemove() {
     const newSubjects = matching[standard_id].filter(
       (subjects) => subjects.subject_id != subject.subject_id
@@ -31,6 +33,7 @@ function AddedSubjectButton({ subject, standard_id }) {
           subject={subject}
           standard_id={standard_id}
           setIsNoteOpen={setIsNoteOpen}
+          setIsNoteAdded={setIsNoteAdded}
         />
       )}
       <div
@@ -42,8 +45,8 @@ function AddedSubjectButton({ subject, standard_id }) {
           {subject.subject_name}
         </div>
         <div className="text-white text-xs text-center opacity-0 group-hover:opacity-100 fixed group-hover:hover:transition-all duration-200">
-          <button onClick={() => setIsNoteOpen(true)}>Add Note</button>
-          <div className="mb-2">______</div>
+          <button className="mb-[-5]"onClick={() => setIsNoteOpen(true)}>{isNoteAdded}</button>
+          <div className="mb-2 ">______</div>
           <button
             onClick={() => {
               handleRemove();
