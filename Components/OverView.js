@@ -56,7 +56,7 @@ function OverView({ page, setPage }) {
     overviewAccordionsData.push(
       <div>
         <div className=" text-center flex justify-center pb-3">
-          <div className=" text-3xl py-2 bg-blue-gray-600 font-serif text-white px-8 rounded-xl">
+          <div className=" text-3xl py-2 bg-codeVa-vDarkBlue font-serif text-white px-8 rounded-xl">
             {subjectMatch.subject_name}
           </div>
         </div>

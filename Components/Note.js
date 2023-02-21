@@ -127,7 +127,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
             </form>
             {/*body*/}
             <div className="relative p-6 flex-auto overflow-y-auto"></div>
-            <div className=" z-[9999] ">
+            <div className=" z-[9999]">
               <Alert
                 show={showAlert}
                 animate={{

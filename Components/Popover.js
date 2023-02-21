@@ -47,7 +47,7 @@ export default function PopoverButton() {
   return (
     <div>
       <Button
-        className="relative flex items-center justify-center rounded-full w-[70px] h-[70px] transform transition-al bg-gray-800 ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md z-0"
+        className="relative flex items-center justify-center rounded-full w-[70px] h-[70px] transform transition-all bg-codeVa-vDarkBlue ring-0 ring-gray-300 hover:ring-8 group-focus:ring-4 ring-opacity-30 duration-200 shadow-md z-0"
         aria-describedby={id}
         variant="contained"
         onClick={handleClick}
