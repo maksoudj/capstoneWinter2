@@ -80,29 +80,50 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
   standardsPerSubject.forEach((subjectMatch) => {
     console.log(subjectMatch);
     PDFData.push(
-      <div>
+      <div className="pl-9 pr-9">
         <div className=" text-center flex justify-center pb-3">
-          <div className=" text-2xl font-serif">
+          <div className=" text-2xl font-serif pt-9 font-bold">
             {subjectMatch.subject_name}
           </div>
         </div>
-        {subjectMatch.standards.map((standard_id) => {
-          console.log(standard_id);
+        <div className="grid grid-cols-3 text-center text-lg font-semibold">
+          <div >Standard Id</div>
+          <div>Core Standard</div>
+          <div>Note</div>
+        </div>
+        <div className="text-center">
+          {subjectMatch.standards.map((standard_id) => {
+            console.log(standard_id);
 
-          return (
-            <ul key={standard_id}>
-              {GetStandardInfo(subjectMatch.subject_name, standard_id)}
-            </ul>
-          );
-        })}
+            return (
+              <div className="grid grid-cols-3 pb-3 gap-3" key={standard_id}>
+                <div className="bg-blue-gray-100 rounded-md p-2">{standard_id}</div>
+                <div className="bg-blue-gray-100 rounded-md p-2">
+                  {
+                    matching[standard_id].find((subject) => {
+                      return subject.subject_name == subjectMatch.subject_name;
+                    })["section"] ?? "None"
+                  }
+                </div>
+                <div className="bg-blue-gray-100 rounded-md p-2">
+                  {
+                    matching[standard_id].find((subject) => {
+                      return subject.subject_name == subjectMatch.subject_name;
+                    })["note"] ?? "None"
+                  }
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   });
   return (
-    <div ref={ref} className="bg-white pl-6">
+    <div ref={ref} className="bg-white">
       <div className="float-right pr-3">{dateTime}</div>
 
-      {PDFData}
+      <div className = "pt-9">{PDFData}</div>
       <div className="ml-[180px]">
         <h2>Attendance</h2>
         <table>
@@ -129,6 +150,14 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div className="flex justify-center">
+        <div className="grid grid-cols-4 w-[70vw] place-items-center  gap-2">
+          <div>subject</div>
+          <div>CS Standard</div>
+          <div>Core Standard</div>
+          <div>Note</div>
+        </div>
       </div>
     </div>
   );

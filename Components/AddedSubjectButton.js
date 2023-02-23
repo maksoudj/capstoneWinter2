@@ -45,8 +45,8 @@ function AddedSubjectButton({ subject, standard_id }) {
           {subject.subject_name}
         </div>
         <div className="text-white text-xs text-center opacity-0 group-hover:opacity-100 fixed group-hover:hover:transition-all duration-200">
-          <button className="mb-[-5]"onClick={() => setIsNoteOpen(true)}>Add Note</button>
-          <div className="mb-2 ">______</div>
+          <button className=" z-[100]"onClick={() => setIsNoteOpen(true)}>{isNoteAdded}</button>
+          <div className=" mt-[-15%] mb-[5%] cursor-default z-[-1] select-none">______</div>
           <button
             onClick={() => {
               handleRemove();

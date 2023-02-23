@@ -94,7 +94,7 @@ export default function OverViewAccordian({
     return (subject2.subject_name == subject_name);
   }).note ?? ""
   if (section != ""){
-    section = "Section: " + section
+    section = subject_name + " Standard: " + section
   }
   var formattedNote = ""
   if (note != ""){
@@ -114,10 +114,10 @@ export default function OverViewAccordian({
       >
         <AccordionHeader onClick={() => handleOpen(1)}>
           
-          <div className="pl-3 grow place-items-center grid grid-cols-4 justify-items-start self-start">
-            <div className="text-2xl   ">{standard_id}</div>
+          <div className="pl-3 grow place-items-start grid grid-cols-4 justify-items-start">
+            <div className="text-xl   "> CS {standard_id}</div>
             <div className="text-sm ">{section}</div>
-          <div className=" text-sm col-span-2">
+          <div className=" text-sm col-span-2  place-self-start right-full -left-full">
             {formattedNote}
           </div>
           </div>

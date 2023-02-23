@@ -145,7 +145,7 @@ function UserInput({ page, setPage}) {
               alignItems: "center",
             }}
           >
-            <TextField
+            <TextField className="bg-white rounded-t-md"
               id="fullName"
               label="Full Name"
               variant="filled"
@@ -153,7 +153,7 @@ function UserInput({ page, setPage}) {
               size="small"
               required={true}
             />
-            <TextField
+            <TextField className="bg-white rounded-t-md"
               id="Email"
               label="Email"
               variant="filled"
@@ -161,7 +161,7 @@ function UserInput({ page, setPage}) {
               size="small"
               required={true}
             />
-            <TextField
+            <TextField className="bg-white rounded-t-md"
               id="Role"
               label="Role"
               variant="filled"

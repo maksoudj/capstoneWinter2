@@ -52,7 +52,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
     if (defSection || defNote ){
       console.log(defSection)
       buttonText = "Change Note"
-      setIsNoteAdded("Change Note")
+      setIsNoteAdded("See Note")
     }
     else{
       setIsNoteAdded("Add Note")
