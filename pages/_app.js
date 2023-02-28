@@ -9,14 +9,16 @@ import { ThemeProvider } from "@material-tailwind/react";
 function MyApp({ Component, pageProps }) {
   return (
     <div>
+      <DataProvider>
       <DndProvider backend={HTML5Backend}>
         <StyledEngineProvider injectFirst>
-          <DataProvider>
+          
               <TopBar />
               <Component {...pageProps} />
-          </DataProvider>
         </StyledEngineProvider>
       </DndProvider>
+      </DataProvider>
+
 
     </div>
   );
