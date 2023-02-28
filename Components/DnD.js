@@ -5,24 +5,17 @@ import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 import PopoverButton  from "./Popover";
 function DnD() {
-  const [addedSubjects, setAddedSubjects] = useState([]);
-  const { subjectList, setSubjectList,updateSubjects,setUpdateSubjects } = useContext(DataContext);
-  const [openSubject, setOpenSubject] = useState(false);
-  useEffect(() => {
-    if (updateSubjects){
-      console.log(subjectList)
-    setAddedSubjects(() => {return subjectList.map((subject) => {
-      return (
-        <SubjectCircle
-          subject={subject.subject_name}
-          key={subject.subject_id}
-          id={subject.subject_id}
-        />
-      );
-    })})
-    setUpdateSubjects(false)
-  }
-  });
+  const { subjectList, setSubjectList} = useContext(DataContext);
+ 
+  const addedSubjects = subjectList.map((subject) => {
+    return (
+      <SubjectCircle
+        subject={subject.subject_name}
+        key={subject.subject_id}
+        id={subject.subject_id}
+      />
+    );
+  })
   
   
   return (

@@ -16,10 +16,9 @@ export const DataProvider = ({children}) => {
       const [questions, setQuestions] = useState();
       const [skills, setSkills] = useState();
       const [vocab, setVocab] = useState();
-      const [updateSubjects,setUpdateSubjects] = useState(true)
     return (
         <DataContext.Provider value = {{
-            users, setUsers, formData,setFormData,gradeStandards,setGradeStandards,matching,setMatching,subjectList,setSubjectList,scrollVisibility,setScrollVisibility,questions, setQuestions,skills,setSkills,vocab, setVocab,updateSubjects,setUpdateSubjects
+            users, setUsers, formData,setFormData,gradeStandards,setGradeStandards,matching,setMatching,subjectList,setSubjectList,scrollVisibility,setScrollVisibility,questions, setQuestions,skills,setSkills,vocab, setVocab
         }}>
             {children}
         </DataContext.Provider>

@@ -16,9 +16,8 @@ export default function MoreModal({
   setScrollVisibility("hidden");
   const {questions, setQuestions} = useContext(DataContext);
   const {skills, setSkills} = useContext(DataContext);
-  const {vocab, setVocab , setUpdateSubjects} = useContext(DataContext);
+  const {vocab, setVocab } = useContext(DataContext);
   useEffect(()=> {
-    setUpdateSubjects(true)
 
   },[])
 
