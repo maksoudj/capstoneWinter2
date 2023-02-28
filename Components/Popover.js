@@ -9,7 +9,7 @@ import DataContext from "../Context/FormContext";
 
 
 export default function PopoverButton() {
-  const {subjectList, setSubjectList,setUpdateSubjects} = useContext(DataContext);
+  const {subjectList, setSubjectList} = useContext(DataContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [value, setValue] = useState("");
 
@@ -31,8 +31,7 @@ export default function PopoverButton() {
     const subject_name = event.target.subjectToAdd.value;
     const newSubjectList = subjectList;
     newSubjectList.push({subject_id, subject_name});
-    setSubjectList(newSubjectList);
-    setUpdateSubjects(true);
+    setSubjectList((subjectList) => {return [...subjectList,{subject_id,subject_name}]});
     console.log(newSubjectList);
     console.log(subject_name);
     console.log(subject_id);

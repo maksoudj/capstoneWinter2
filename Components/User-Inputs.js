@@ -23,13 +23,7 @@ function UserInput({ page, setPage}) {
     [setUsers]
   );
 
-  function CustomToolbar() {
-    return (
-      <GridToolbarContainer>
-        <GridToolbarDensitySelector />
-      </GridToolbarContainer>
-    );
-  }
+  
 
   const columns = React.useMemo(
     () => [
@@ -111,7 +105,7 @@ function UserInput({ page, setPage}) {
           handleSubmit(event);
         }}
       >
-        <div
+        <div className="rounded-2xl"
           style={{
             height: 300,
             width: 600,
@@ -119,22 +113,18 @@ function UserInput({ page, setPage}) {
             marginLeft: "auto",
             marginRight: "auto",
             background: "white",
-            borderRadius: "5%",
             marginTop: "2%",
           }}
         >
-          <DataGrid
+          <DataGrid className="rounded-2xl justify-center "
             id="dt"
             rows={users}
             onCellEditCommit = {(params) => {handleEdit(params)}}
             density="compact"
-            components={{
-              Toolbar: CustomToolbar,
-            }}
+            
             columns={columns}
            // experimentalFeatures={{ newEditingApi: true }}
             sx={{
-              borderRadius: "5%",
             }}
           />
 

@@ -9,9 +9,10 @@ import Image from "next/image";
 import axios from "axios";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
+import { Button } from "@mui/material";
 
 function Start(props) {
-  const {formData, setFormData, setMatching} = useContext(DataContext)
+  const {formData, setFormData, setMatching,setSubjectList} = useContext(DataContext)
   console.log(props)
   const [schools, setSchools] = useState([]);
   const divisions = props.schoolsAndDivisions.divisions.map(
@@ -21,7 +22,7 @@ function Start(props) {
     (grade) => grade.grade_level
     );
     
- 
+  
   useEffect(() => {
     const getSchools = async () => {
       const response = await axios.post("http://localhost:3000/api/Schools", 
@@ -56,7 +57,9 @@ function Start(props) {
             label="Select Grade Level"
             options={grades}
             value={formData.selectedGrade}
-            onChange={(event, value) => setFormData({...formData, selectedGrade: value})}
+            onChange={(event, value) => {setFormData({...formData, selectedGrade: value});
+            setSubjectList(props.schoolsAndDivisions.subjectList);
+            }}
           />
         </div>
         <div>
@@ -73,7 +76,7 @@ function Start(props) {
               width: "100%",
             }}
           >
-            <LinkButton text="About us" action="/User-Inputs" />
+            <Button className="pl-3 text-black" onClick={() => window.open("https://www.codevirginia.org/educators/", "_blank", "noopener noreferrer")}>About us</Button>
             <LinkButton
               disabled={!Boolean(formData.selectedSchool)}
               onClick= {() => {{props.setPage( props.page + 1)}}} 
