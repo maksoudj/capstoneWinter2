@@ -9,6 +9,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
+import { Button } from "@mui/material";
 
 function Start(props) {
   const {formData, setFormData, setMatching,setSubjectList} = useContext(DataContext)
@@ -75,7 +76,7 @@ function Start(props) {
               width: "100%",
             }}
           >
-            <LinkButton text="About us" action="/User-Inputs" />
+            <Button className="pl-3 text-black" onClick={() => window.open("https://www.codevirginia.org/educators/", "_blank", "noopener noreferrer")}>About us</Button>
             <LinkButton
               disabled={!Boolean(formData.selectedSchool)}
               onClick= {() => {{props.setPage( props.page + 1)}}} 
