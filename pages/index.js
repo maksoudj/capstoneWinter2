@@ -44,7 +44,7 @@ function Parent(props) {
       setVocab(result.data[3][0])
     })
     }
-  }, [formData.selectedGrade]);
+  }, [formData]);
 
   const pageDisplay = () => {
     if (page === 0) {

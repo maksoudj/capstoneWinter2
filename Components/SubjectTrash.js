@@ -1,41 +1,33 @@
 import React from "react";
 import { useDrop } from "react-dnd";
 import DataContext from "../Context/FormContext";
-import { useContext } from "react";
+import { useContext,useState } from "react";
+import Image from "next/image";
+import TrashIcon from './trash.svg'
 
 function SubjectTrash() {
   const { subjectList, setSubjectList } = useContext(DataContext);
   const { matching, setMatching } = useContext(DataContext);
-
+  
   const [subjectToDrop, drop] = useDrop(
     () => ({
       accept: "subject",
       drop: (item) => removeSubjects(item.id),
       collect: (monitor) => ({
         isOver: !!monitor.isOver(),
-      }),
-    }),
-    [ subjectList]
+      })
+    })
+    ,[matching,subjectList]
   );
-
-  const deleteSubject = React.useCallback(
-    (id) => () => {
-      setTimeout(() => {
-        setSubjectList((subjectList) =>
-          subjectList.filter((subject) => id !== subject.subject_id)
-        );
-      });
-    },
-    [setSubjectList]
-  );
+  
 
   const removeSubjects = (id) => {
     setMatching((matching) => {
       return { ...matching };
     });
     console.log(id);
-    const subjectToRemove = subjectList.find(
-      (subject) => id === subject.subject_id
+    const subjectToRemove = subjectList.findIndex(
+      (subject) => id == subject.subject_id
     );
 
     if (
@@ -55,31 +47,27 @@ function SubjectTrash() {
             })
             .toString()
       );
-    } else if (subjectList.find((subject) => id === subject.subject_id)) {
+    } else if (subjectList.find((subject) => id === subject.subject_id != null)) {
+      console.log(subjectList.findIndex(
+        (subject) => id == subject.subject_id
+      ))
       console.log(subjectList);
-      setSubjectList((preList) => 
-       
-         {
-          //console.log(subjectList.filter((subject) => id !== subject.subject_id))
-          return (preList.filter((subject) => id !== subject.subject_id))
-        }
-         
-      );
-  
-      //deleteSubject(id);
-
+      const temp = subjectList;
+      setSubjectList( temp.splice(temp.findIndex(
+        (subject) => id == subject.subject_id
+      ),1));
       console.log(subjectList);
     }
   };
+  console.log(subjectList);
 
-  return (
-    <div className="flex flex-row m-2">
-      {}
+    return (
+    <div className="flex m-2 pb-10" ref={drop}
+    >
       <div
-        ref={drop}
-        className="relative flex items-center justify-center rounded-full w-[70px] h-[70px] transform transition-all outline-dashed"
+        className=" w-[70px] h-[70px] center "
       >
-        <p className="text-white text-sm text-center">Remove a Subject</p>
+          <Image  src={TrashIcon} alt="aaa" className=" content-center m-5"/>
       </div>
     </div>
   );

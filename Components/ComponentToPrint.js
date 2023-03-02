@@ -2,7 +2,6 @@
 import React, { forwardRef, useContext } from "react";
 import DataContext from "../Context/FormContext";
 
-
 const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
   const { questions, setQuestions } = useContext(DataContext);
   const { skills, setSkills } = useContext(DataContext);
@@ -48,7 +47,7 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
       (standards) => standards.standard_id == standard_id
     );
     console.log(standardInfo);
-
+      
     const formattedDescription = standardInfo.description
       .split("\n")
       .map((str) => <p>{str}</p>);
@@ -60,16 +59,26 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
       <div className="font-serif">
         <div className="px-9">
           <div className="font-bold text-lg pt-5">CS {standard_id}</div>
-          <div className="font-semibold ">Description:</div>
-          {formattedDescription}
-          <div className="font-semibold">Context of The Standard:</div>
-          {formattedContext}
-          <div className="font-semibold">Skills</div>
-          <div>{fSkills}</div>
-          <div className="font-semibold">Questions</div>
-          <div>{fQuestions}</div>
-          <div className="font-semibold">Vocabulary</div>
-          <div className="pb-5">{fVocab}</div>
+          <div className="break-inside-avoid">
+            <div className="font-semibold ">Description:</div>
+            <div>{formattedDescription}</div>
+          </div>
+          <div className="break-inside-avoid">
+            <div className="font-semibold">Context of The Standard:</div>
+            <div>{formattedContext}</div>
+          </div>
+          <div className="break-inside-avoid">
+            <div className="font-semibold">Skills</div>
+            <div>{fSkills}</div>
+          </div>
+          <div className="break-inside-avoid">
+            <div className="font-semibold">Questions</div>
+            <div>{fQuestions}</div>
+          </div>
+          <div className="break-inside-avoid">
+            <div className="font-semibold">Vocabulary</div>
+            <div className="pb-5">{fVocab}</div>
+          </div>
         </div>
       </div>
     );
@@ -137,7 +146,7 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
         <div className="text-center pt-5 text-2xl font-semibold font-serif ">
           CS Standards
         </div>
-        <div className="break-inside-avoid">
+        <div className="">
           {Object.keys(matching).map((id) => {
             return GetStandardInfo(id);
           })}

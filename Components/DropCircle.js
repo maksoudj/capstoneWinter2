@@ -18,7 +18,8 @@ function DropCircle({ standard_id }) {
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
-  }),[matching]);
+  })
+  ,[matching,subjectList]);
   const [ready, setReady] = useState(() => {
     if (matching.hasOwnProperty('map')){
       return true
@@ -65,7 +66,6 @@ catch(error){
       </div>
     </div>
   );
-  
 }
 
 export default DropCircle;

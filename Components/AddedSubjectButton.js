@@ -15,7 +15,7 @@ function AddedSubjectButton({ subject, standard_id }) {
     );
     if (newSubjects.length == 0) {
       const matchingCopy = { ...matching };
-      delete matchingCopy[standard_id];
+      delete matchingCopy[standard_id]; 
       setMatching(matchingCopy);
       console.log(matching);
     } else {
