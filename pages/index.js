@@ -20,7 +20,7 @@ function Parent(props) {
   const {vocab, setVocab} = useContext(DataContext);
   setSubjectList(props.schoolsAndDivisions.subjectList);
   console.log(subjectList);
-  const [page, setPage] = useState(0);
+  const {page, setPage} = useContext(DataContext);
 
   
   if (formData.selectedGrade != null && formData.selectedGrade.length > 0) {
