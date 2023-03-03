@@ -8,6 +8,7 @@ import SubjectTrash from "./SubjectTrash";
 
 function DnD() {
   const { subjectList, setSubjectList } = useContext(DataContext);
+  const {trashVisibility} = useContext(DataContext);
 
   
   console.log(subjectList);
@@ -29,7 +30,7 @@ function DnD() {
             })}
             <PopoverButton />
             <div className="absolute left-[15vw]">
-        <SubjectTrash />
+        {trashVisibility && <SubjectTrash />}
         </div>
           </div>
           

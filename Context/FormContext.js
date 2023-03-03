@@ -17,11 +17,12 @@ export const DataProvider = ({children}) => {
       const [skills, setSkills] = useState();
       const [vocab, setVocab] = useState();
       const [page, setPage] = useState(0);
+      const [trashVisibility, setTrashVisibility] = useState(false)
 
 
     return (
         <DataContext.Provider value = {{
-            users, setUsers, formData,setFormData,gradeStandards,setGradeStandards,matching,setMatching,subjectList,setSubjectList,scrollVisibility,setScrollVisibility,questions, setQuestions,skills,setSkills,vocab, setVocab,page,setPage
+            users, setUsers, formData, setFormData,gradeStandards,setGradeStandards,matching,setMatching,subjectList,setSubjectList,scrollVisibility,setScrollVisibility,questions, setQuestions,skills,setSkills,vocab, setVocab,page,setPage,trashVisibility,setTrashVisibility
         }}>
             {children}
         </DataContext.Provider>

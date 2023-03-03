@@ -86,7 +86,7 @@ function OverView({ page, setPage }) {
   return (
     <div>
       <div>
-        <div className=" p-7">
+        <div className="hidden p-7">
           <ComponentToPrint
             standardsPerSubject={standardsPerSubject}
             

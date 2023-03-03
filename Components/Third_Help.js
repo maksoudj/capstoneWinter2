@@ -34,7 +34,7 @@ export default function Third_help({
               </button>
             </div>
             {/*body*/}
-            <div className="relative p-6 flex-auto overflow-y-auto">
+            <div className="relative p-6 flex-auto overflow-y-scroll">
               <h3 className="text-xl font-semibold"></h3>
               <p className="my-4 text-slate-500 text-lg leading-relaxed">
               </p>

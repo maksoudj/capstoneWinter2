@@ -59,6 +59,7 @@ function Start(props) {
             value={formData.selectedGrade}
             onChange={(event, value) => {setFormData({...formData, selectedGrade: value});
             setSubjectList(props.schoolsAndDivisions.subjectList);
+            setMatching({})
             }}
           />
         </div>
