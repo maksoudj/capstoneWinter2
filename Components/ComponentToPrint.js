@@ -56,9 +56,9 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
       .map((str) => <p>{str}</p>);
     console.log(formattedDescription[0]);
     return (
-      <div className="font-serif">
+      <div className="font-serif break-after-page" style={{margin: '2em 0' }}>
         <div className="px-9">
-          <div className="font-bold text-lg pt-5">CS {standard_id}</div>
+          <div className="font-bold text-lg ">CS {standard_id}</div>
           <div className="break-inside-avoid">
             <div className="font-semibold ">Description:</div>
             <div>{formattedDescription}</div>
@@ -99,7 +99,7 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
   standardsPerSubject.forEach((subjectMatch) => {
     console.log(subjectMatch);
     PDFData.push(
-      <div className="pl-9 pr-9">
+      <div className="pl-9 pr-9"  style={{ pageBreakAfter: 'always'}}>
         <div className=" text-center flex justify-center pb-3">
           <div className=" text-2xl font-serif pt-9 font-bold underline ">
             {subjectMatch.subject_name}
@@ -108,7 +108,7 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
         <div className="grid grid-cols-3 text-center text-lg font-semibold">
           <div>CS Standard</div>
           <div>Core Standard</div>
-          <div>Note</div>
+          <div>Note</div> 
         </div>
         <div className="text-center">
           {subjectMatch.standards.map((standard_id) => {
@@ -146,7 +146,7 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
         <div className="text-center pt-5 text-2xl font-semibold font-serif ">
           CS Standards
         </div>
-        <div className="">
+        <div className="page-break-after">
           {Object.keys(matching).map((id) => {
             return GetStandardInfo(id);
           })}
