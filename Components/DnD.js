@@ -7,12 +7,11 @@ import PopoverButton from "./Popover";
 import SubjectTrash from "./SubjectTrash";
 
 function DnD() {
-  const { subjectList, setSubjectList } = useContext(DataContext);
+  const { subjectList, setSubjectList} = useContext(DataContext);
   const {trashVisibility} = useContext(DataContext);
 
   
   console.log(subjectList);
-
   return (
     <>
       <div>
@@ -30,7 +29,7 @@ function DnD() {
             })}
             <PopoverButton />
             <div className="absolute left-[15vw]">
-        {trashVisibility && <SubjectTrash />}
+        <SubjectTrash />
         </div>
           </div>
           

@@ -25,9 +25,10 @@ export default function List({ data }) {
   return (
     <div className="mt-6">
         <SimpleBarReact style={{zIndex : 5 , overflow : scrollVisibility}}
+        className="h-[66vh]"
         
         >
-        <div className="flex flex-row h-[66vh] z-0">
+        <div className="flex flex-row z-0 ">
         {cardsList}
         </div>
         </SimpleBarReact>

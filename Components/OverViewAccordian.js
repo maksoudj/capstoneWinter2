@@ -114,10 +114,10 @@ export default function OverViewAccordian({
       >
         <AccordionHeader onClick={() => handleOpen(1)}>
           
-          <div className="pl-3 grow place-items-start grid grid-cols-4 justify-items-start">
-            <div className="text-xl   "> CS {standard_id}</div>
-            <div className="text-sm ">{section}</div>
-          <div className=" text-sm col-span-2  place-self-start right-full -left-full">
+          <div className="pl-3 grow place-items-start grid grid-cols-9 gap-7 justify-items-start">
+            <div className="text-xl"> CS {standard_id}</div>
+            <div className="text-sm col-span-2">{section}</div>
+          <div className=" text-sm col-span-6  !place-self-start right-full -left-full">
             {formattedNote}
           </div>
           </div>

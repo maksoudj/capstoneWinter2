@@ -10,13 +10,10 @@ function SubjectCircle(props) {
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(),
             
-            
         }),
         
     }))
-    if (isDragging) {
-      setTrashVisibility(true)
-    }
+   
     
     
     
