@@ -1,0 +1,12 @@
+button {
+    width: 6em
+  }
+  
+  button:hover span {
+    display: none
+  }
+  
+  button:hover:before {
+    content: "Reply!"
+  }
+  

@@ -1,24 +1,37 @@
-import { FixedSizeList as List } from 'react-window';
- import StandardCard from './StandardCard';
- import classes from './ListOfStandards.module.css'
- import DropArea from "./DropArea";
+import StandardCard from "./StandardCard";
+import classes from "./ListOfStandards.module.css";
+import DropArea from "./DropArea";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useContext } from "react";
+import DataContext from "../Context/FormContext";
+import SimpleBarReact from "simplebar-react";
+import "simplebar-react/dist/simplebar.min.css";
 
-const Column = ({ index, style }) => (
-  <div style={style}><StandardCard/></div>
-);
- 
-export default function list() {
+export default function List({ data }) {
+  const {scrollVisibility} = useContext(DataContext)
+  const cardsList = data.map((standard) => {
+    return (
+      <StandardCard
+        key={standard.standard_id}
+        standard_id={standard.standard_id}
+        description={standard.description}
+        context_of_the_standard={standard.context_of_the_standard}
+      />
+    );
+  });
+  console.log(data);
+
   return (
-    <div className = "mt-6">
-  <List className= {classes.noScroll}
-    height={window.innerHeight * .66}
-    itemCount={1000}
-    itemSize={window.innerWidth / 3}
-    layout="horizontal"
-    width={window.innerWidth}
-  >
-    {Column}
-  </List>
-  </div>
-);
+    <div className="mt-6">
+        <SimpleBarReact style={{zIndex : 5 , overflow : scrollVisibility}}
+        className="h-[66vh]"
+        
+        >
+        <div className="flex flex-row z-0 ">
+        {cardsList}
+        </div>
+        </SimpleBarReact>
+    </div>
+  );
 }

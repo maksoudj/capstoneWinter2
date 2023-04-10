@@ -16,14 +16,14 @@ const theme = createTheme({
    export default function DropDown(props) {
     return (
         <ThemeProvider theme={theme}>
-      <Autocomplete
+      <Autocomplete className = 'rounded-t-md'
         disablePortal
         id= {props.id}
         value={props.value}
         onChange={props.onChange}
         options={props.options}
-        sx={{ marginBottom : '1rem'}}
-        renderInput={(params) => <TextField {...params} label= {props.label} variant='filled' size = 'small'/>}
+        sx={{ marginBottom : '1rem', backgroundColor: "White" }}
+        renderInput={(params) => <TextField {...params} label= {props.label} variant='filled' size = 'small' />}
       />
       </ThemeProvider>
     );

@@ -1,6 +1,5 @@
 import { TextField } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-
 import {
   DataGrid,
   GridActionsCellItem,
@@ -10,8 +9,11 @@ import {
 import Box from "@mui/material/Box";
 import LinkButton from "./LinkButton";
 import React from "react";
+import { useContext } from "react";
+import DataContext from "../Context/FormContext";
 
-function UserInput({ page, setPage, users, setUsers }) {
+function UserInput({ page, setPage}) {
+  const {users, setUsers} = useContext(DataContext)
   const deleteUser = React.useCallback(
     (id) => () => {
       setTimeout(() => {
@@ -21,13 +23,7 @@ function UserInput({ page, setPage, users, setUsers }) {
     [setUsers]
   );
 
-  function CustomToolbar() {
-    return (
-      <GridToolbarContainer>
-        <GridToolbarDensitySelector />
-      </GridToolbarContainer>
-    );
-  }
+  
 
   const columns = React.useMemo(
     () => [
@@ -109,7 +105,7 @@ function UserInput({ page, setPage, users, setUsers }) {
           handleSubmit(event);
         }}
       >
-        <div
+        <div className="rounded-2xl"
           style={{
             height: 300,
             width: 600,
@@ -117,22 +113,18 @@ function UserInput({ page, setPage, users, setUsers }) {
             marginLeft: "auto",
             marginRight: "auto",
             background: "white",
-            borderRadius: "5%",
             marginTop: "2%",
           }}
         >
-          <DataGrid
+          <DataGrid className="rounded-2xl justify-center "
             id="dt"
             rows={users}
             onCellEditCommit = {(params) => {handleEdit(params)}}
             density="compact"
-            components={{
-              Toolbar: CustomToolbar,
-            }}
+            
             columns={columns}
            // experimentalFeatures={{ newEditingApi: true }}
             sx={{
-              borderRadius: "5%",
             }}
           />
 
@@ -143,7 +135,7 @@ function UserInput({ page, setPage, users, setUsers }) {
               alignItems: "center",
             }}
           >
-            <TextField
+            <TextField className="bg-white rounded-t-md"
               id="fullName"
               label="Full Name"
               variant="filled"
@@ -151,7 +143,7 @@ function UserInput({ page, setPage, users, setUsers }) {
               size="small"
               required={true}
             />
-            <TextField
+            <TextField className="bg-white rounded-t-md"
               id="Email"
               label="Email"
               variant="filled"
@@ -159,7 +151,7 @@ function UserInput({ page, setPage, users, setUsers }) {
               size="small"
               required={true}
             />
-            <TextField
+            <TextField className="bg-white rounded-t-md"
               id="Role"
               label="Role"
               variant="filled"
@@ -170,7 +162,7 @@ function UserInput({ page, setPage, users, setUsers }) {
             <button
               type="submit"
               value="Submit"
-              className="mt-6 flex w-addUser items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="mt-6 flex w-addUser items-center justify-center rounded-md border border-transparent bg-codeVa-blue py-3 px-8 text-base font-medium text-white hover:bg-codeVa-lightBlue focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Add User
             </button>

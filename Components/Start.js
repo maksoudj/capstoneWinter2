@@ -7,8 +7,12 @@ import Box from "@mui/material/Box";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
+import { useContext } from "react";
+import DataContext from "../Context/FormContext";
+import { Button } from "@mui/material";
 
 function Start(props) {
+  const {formData, setFormData, setMatching,setSubjectList} = useContext(DataContext)
   console.log(props)
   const [schools, setSchools] = useState([]);
   const divisions = props.schoolsAndDivisions.divisions.map(
@@ -17,18 +21,18 @@ function Start(props) {
   const grades = props.schoolsAndDivisions.grades.map(
     (grade) => grade.grade_level
     );
- // const [school, setSchool] = useState();
+    
+  
   useEffect(() => {
     const getSchools = async () => {
-      console.log(props.formData.selectedDivision + "aaaa");
       const response = await axios.post("http://localhost:3000/api/Schools", 
-        {selectedDivision: props.formData.selectedDivision}
+        {selectedDivision: formData.selectedDivision}
       );
       const schoolList = response.data[0].map((school) => school.school_name);
       setSchools(schoolList);
     };
     getSchools();
-  }, [props.formData.selectedDivision]);
+  }, [formData.selectedDivision]);
 
   console.log(props);
   return (
@@ -37,25 +41,26 @@ function Start(props) {
           <DropDown
             id="select-Division"
             label="Select Division"
-            value={props.formData.selectedDivision}
-            onChange={(event, value) => props.setFormData({...props.formData, selectedDivision: value})}
+            value={formData.selectedDivision}
+            onChange={(event, value) => setFormData({...formData, selectedDivision: value})}
             options={divisions}
           />
           <DropDown
             id="select-School-Name"
             label="Select School Name"
-            value={props.formData.selectedSchool}
-            onChange={(event, value) => props.setFormData({...props.formData, selectedSchool: value})}
+            value={formData.selectedSchool}
+            onChange={(event, value) => setFormData({...formData, selectedSchool: value})}
             options={schools}
           />
           <DropDown
             id="Select-Grade-Level"
             label="Select Grade Level"
             options={grades}
-            value={props.formData.selectedGrade}
-            onChange={(event, value) => props.setFormData({...props.formData, selectedGrade: value})}
-
-
+            value={formData.selectedGrade}
+            onChange={(event, value) => {setFormData({...formData, selectedGrade: value});
+            setSubjectList(props.schoolsAndDivisions.subjectList);
+            setMatching({})
+            }}
           />
         </div>
         <div>
@@ -72,9 +77,9 @@ function Start(props) {
               width: "100%",
             }}
           >
-            <LinkButton text="About us" action="/User-Inputs" />
+            <Button className="pl-3 text-black" onClick={() => window.open("https://www.codevirginia.org/educators/", "_blank", "noopener noreferrer")}>About us</Button>
             <LinkButton
-              disabled={!Boolean(props.formData.selectedSchool)}
+              disabled={!Boolean(formData.selectedSchool)}
               onClick= {() => {{props.setPage( props.page + 1)}}} 
               text="Next"
             />
