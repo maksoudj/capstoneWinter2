@@ -32,24 +32,8 @@ export default function First_help({
             </div>
             {/*body*/}
             <div className="relative p-6 flex-auto overflow-y-auto ">
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-lg font-semibold list-item ">
-               Please pick the School Division, School Name, and Grade Level from the drop down menues. Once you are done, click the "next" button in the bottom right corner.
-              </h3>
-              <h3 className="text-lg font-semibold list-item">
-               The "About Us" button in the bottom left corner will take you to the CodeVA website.
-              </h3>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
+              <h3 className="text-lg font-semibold ">
+              Select the School Division, School Name, and Grade Level options available in the drop-down menus. After making your selections, click on the "next" button located at the bottom right corner. To visit the CodeVA website, you can click on the "About Us" button situated in the bottom left corner.</h3>
             </div>
           </div>
         </div>

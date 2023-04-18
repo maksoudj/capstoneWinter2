@@ -23,7 +23,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
   }, [showAlert]);
   function handleSubmit(event) {
     event.preventDefault();
-
+    if(event.target.Section_Note.value && event.target.Add_Note.value){
     const Note = {
       ...subject,
       section: event.target.Section_Note.value,
@@ -39,6 +39,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
     edited_matching.splice(index, 0, Note);
     setMatching({ ...matching, [standard_id]: edited_matching });
     setShowAlert(true);
+    }else{ alert('Please add both Section Note and Add Note before submitting.');}
   }
   let defSection = "";
   let defNote = "";
@@ -49,7 +50,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
     defNote = matching[standard_id].filter((subject2) => {
       return subject2.subject_id == subject.subject_id;
     })[0]["note"];
-    if (defSection || defNote ){
+    if (defSection && defNote ){
       console.log(defSection)
       buttonText = "Change Note"
       setIsNoteAdded("See Note")

@@ -8,11 +8,13 @@ import OverViewModal from "./OverViewModal";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import ComponentToPrint from "./ComponentToPrint";
+import CSV from "./CSV.js";
 
 function OverView({ page, setPage }) {
   const [isOpen, setIsOpen] = useState(false);
   const { matching, setMatching, gradeStandards, subjectList } =
     useContext(DataContext);
+  console.log(gradeStandards);
   useEffect(() => {
     const sortedMatching = Object.keys(matching)
       .sort((a, b) => {
@@ -130,15 +132,7 @@ function OverView({ page, setPage }) {
             }}
             text="Prev"
           />
-          <LinkButton
-            disabled={false}
-            onClick={() => {
-              {
-                setPage(0);
-              }
-            }}
-            text="Back To Start"
-          />
+          <CSV page={page} setPage={setPage} />
         </Box>
       </footer>
     </div>

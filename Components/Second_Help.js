@@ -32,22 +32,9 @@ export default function Second_help({
             </div>
             {/*body*/}
             <div className="relative p-6 flex-auto overflow-y-auto">
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-lg font-semibold list-item">
-              Each participating member will add their full name, Email address, and role within the school. Proceed with the "next" button in the bottom right corner.
+              <h3 className="text-lg font-semibold">
+              To continue, each member who is participating should provide their complete name, email address, and specify their role within the school. Click the "next" button located at the bottom right corner to proceed. If you need to return to the first page, you can use the "prev" button situated in the bottom left corner.
               </h3>
-              <h3 className="text-lg font-semibold list-item">
-              The "prev" button in the bottom Left corner will take you back to the first page.</h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
             </div>
           </div>
         </div>
