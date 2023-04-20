@@ -5,7 +5,20 @@ import { Description } from "@mui/icons-material";
 import DropArea from "./DropArea";
 import DnD from "./DnD";
 import DataContext from "../Context/FormContext";
-
+/**************************************************************************************
+Component: MoreModal
+Function: This component displays more details about a particular standard. It contains a modal that appears when a user clicks on a specific standard. The modal shows the description, context, essential skills, essential questions, and essential vocabulary of the standard. Users can also drag and drop files onto the modal.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters -
+  setIsOpen: a function that sets the visibility of the modal
+  standard_id: the ID of the standard that the modal displays information for
+  context_of_the_standard: the context of the standard
+  description: the description of the standard
+Output:
+  A modal that displays information about the selected standard
+  A drop area where users can drag and drop files
+**************************************************************************************/
 export default function MoreModal({
   setIsOpen,
   standard_id,

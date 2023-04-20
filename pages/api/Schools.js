@@ -19,6 +19,8 @@ export default async function handler(req, res) {
     if (req.method == "POST"){
         try {
             const schools = await pool.query("call getSchoolsByDivision(?)", [req.body.selectedDivision]);
+            const div_id = await pool.query("select division_id from divisions where division_name = ?", [req.body.selectedDivision]);
+            console.log(div_id)
             console.log(schools)
             console.log(req.body)
             return res.status(200).json(schools);

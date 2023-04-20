@@ -11,6 +11,28 @@ import Matching from "../Components/Matching";
 import OverView from "../Components/OverView";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
+/**************************************************************************************
+Component: Index
+Function: This component serves as the main component of the application. 
+It contains the logic for rendering different pages based on the user's inputs and interactions with the application.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Props -
+  schoolsAndDivisions: Data containing a list of schools and their corresponding divisions.
+Context -
+  formData: Data containing the user's input values.
+  setMatching: Function for setting the user's matching results.
+  setGradeStandards: Function for setting the standard information for the selected grade.
+  setQuestions: Function for setting the questions for the selected grade.
+  setSkills: Function for setting the skills for the selected grade.
+  setVocab: Function for setting the vocabulary for the selected grade.
+  setSubjectList: Function for setting the list of subjects for the selected school.
+  page: Data containing the current page number.
+  setPage: Function for setting the current page number.
+Output:
+Returns the rendered page based on the user's interactions with the application.
+Return – None
+**************************************************************************************/
 
 function Parent(props) {
   const { setGradeStandards } = useContext(DataContext);

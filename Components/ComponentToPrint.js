@@ -1,6 +1,32 @@
 /* eslint-disable react/jsx-key */
 import React, { forwardRef, useContext } from "react";
 import DataContext from "../Context/FormContext";
+/**************************************************************************************
+
+Component: ComponentToPrint
+Function:
+  Renders the printable component for the PDF generation, which includes CS standards,
+  core standards, notes, descriptions, context of the standard, skills, questions, and vocabulary
+  related to each standard.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Props:
+  standardsPerSubject: an array of objects that contains the standards, core standards,
+  and notes for each subject to be printed in the PDF.
+ref: a reference to the printable component.
+Context:
+  questions: an array of objects that contains the questions related to the CS standards.
+  setQuestions: a function to update the questions in the context.
+  skills: an array of objects that contains the skills related to the CS standards.
+  setSkills: a function to update the skills in the context.
+  vocab: an array of objects that contains the vocabulary related to the CS standards.
+  setVocab: a function to update the vocabulary in the context.
+  matching: an object that maps the CS standards to their corresponding core standards and notes.
+  gradeStandards: an array of objects that contains the descriptions and contexts of each CS standard.
+Output:
+Return – a printable component for the PDF generation that includes the CS standards, core standards,
+notes, descriptions, context of the standard, skills, questions, and vocabulary related to each standard.
+**************************************************************************************/
 
 const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
   const { questions, setQuestions } = useContext(DataContext);

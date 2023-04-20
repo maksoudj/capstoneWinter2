@@ -5,6 +5,19 @@ import { Description } from "@mui/icons-material";
 import DropArea from "./DropArea";
 import DnD from "./DnD";
 import DataContext from "../Context/FormContext";
+/**************************************************************************************
+Component: Third_help
+Function: This component represents the help section for the third page of the application.
+It provides an explanation of the functionality and usage instructions for the user.
+*-----------------------------------------------------------------------------------------
+Input:
+Props -
+  setIsOpen: a function to toggle the visibility of the help section
+Context -
+  setScrollVisibility: a function to set the visibility of the scroll bar in the main page context
+Output:
+Return – A JSX element that renders the help section for the third page of the application.
+**************************************************************************************/
 
 export default function Third_help({
   setIsOpen,
@@ -35,21 +48,15 @@ export default function Third_help({
             </div>
             {/*body*/}
             <div className="relative p-6 flex-auto overflow-y-scroll">
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-lg font-semibold list-item">
-                This is the Matching page. Each Standard Of Learning is displayed for the grade level chosen, along with the description, and context of the Standard.
+              <h3 className="text-lg font-semibold">
+              <ul>
+              <li>- Welcome to the Matching page where you can match Standards of Learning for the chosen grade level with their respective descriptions and contexts. Each Standard box has a "more" button in the bottom right corner that, when clicked, reveals Essential skills, Essential Questions, and Vocabulary for that Standard.</li>
+              <li>- You will be presented with four subject options for each Standard, and you can match multiple subjects to one Standard, and vice versa. Your task is to select the most appropriate set of subjects that match each Standard.</li>
+              <li>- After matching a subject to a Standard, you can hover over the matched subject to reveal a "remove" button that removes the match and an "add note" feature where you can add two notes. The first note is about which part of the core Standard the CS Standard should be added to, and the second note should be used for your specific lesson ideas for CS integration. </li>
+              <li>- You can add new subjects by clicking the + icon on the bottom bar by the subjects, and any subject can be removed by dragging and dropping it into the trash can. As you match the Standards, the progress bar will fill up, and once all Standards are matched to at least one subject to satisfaction, click the "next" button in the bottom right to continue. </li>
+              </ul>
               </h3>
-              <h3 className="text-lg font-semibold list-item">
-                By clicking the "more" button in the bottom right corner of each Standard box, the Essential skills, Essential questions, and Vocabulary will also show for each Standard.</h3>
-              <h3 className="text-lg font-semibold list-item">For each standard, you will have four subject options to match it to. Multiple subjects can be matched to one Standard, and multiple standards can have the same subject. Match the best set of subjects to the given standard. </h3>
-              <h3 className="text-lg font-semibold list-item">Once a subject has been added to a Standard, hovering over the subject matched with the standard will reveal two things, a "remove" button to remove the standard, and an "add note" feature that allows two notes to be added: what part of the core Standard this CS Standard should be added to, and any additional notes for any other details about why this core subject and core Standard was picked for this CS Standard.</h3>
-              <h3 className="text-lg font-semibold list-item">New subjects can be added by clicking the + icon in the bottom bar by the subjects, and any subject can be removed by draggining it and droping it into the trash can. </h3>
-              <h3 className="text-lg font-semibold list-item">As the Standards get matched, the progress bar will get filled up until all Standards are matched to at least one subject. Once all Standards are matched to all the subjects to satisfaction, Continue on with the "next" button in the bottom right. </h3>
-            
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
+              
             </div>
           </div>
         </div>

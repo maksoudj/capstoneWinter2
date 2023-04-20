@@ -6372,14 +6372,13 @@ create table session_form(
 );
 
 create table users(
-  user_id int not null,
-  user_first_name varchar(255) not null,
-  user_last_name varchar(255) not null,
+  user_id int not null auto_increment,
+  user_full_name varchar(255) not null,
   user_email varchar(255) not null,
   user_role varchar(255) not null,
-  form_id int not null,
+  sessions_id int not null,
   primary key (user_id),
-  FOREIGN key (form_id) references session_form(sessions_id)
+  FOREIGN key (sessions_id) references session_form(sessions_id)
 );
 
 create table matched(
@@ -6387,6 +6386,7 @@ create table matched(
   sessions_id int not null,
   standard_id varchar(5) not null,
   subject_id int not null,
+  section_note varchar(2000),
   match_note varchar(2000),
   primary key (match_id, sessions_id, standard_id, subject_id),
   foreign key (sessions_id) references session_form (sessions_id),

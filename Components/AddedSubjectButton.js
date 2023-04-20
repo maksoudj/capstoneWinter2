@@ -3,7 +3,20 @@ import { useState } from "react";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 import Note from "./Note";
-
+/***************************************************************************************
+Component: AddedSubjectButton
+Function:
+This component is used to render a button that represents a subject added by the user.
+It handles the removal of the subject and rendering of a note component.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Props:
+  subject: An object representing the subject added by the user, containing subject_id and subject_name.
+  standard_id: A string representing the ID of the standard the subject belongs to.
+Output:
+Returns the JSX code for rendering the button and the note component.
+Return - None
+**************************************************************************************/
 function AddedSubjectButton({ subject, standard_id }) {
   const [isNoteOpen, setIsNoteOpen] = useState(false);
   const [isNoteAdded,setIsNoteAdded] = useState("Add Note")

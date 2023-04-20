@@ -7,6 +7,19 @@ import AddButton from "./AddButton";
 import { object } from "prop-types";
 import NoteAdded from "./NoteAdded";
 import { Alert } from "@material-tailwind/react";
+/**************************************************************************************
+Component: Note
+Function: Renders a form to add or change a note for a specific subject in a standard.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters - {subject, standard_id, setIsNoteOpen, setIsNoteAdded}
+  subject: an object containing information about the subject (e.g. subject name, subject id).
+  standard_id: the id of the standard to which the subject belongs.
+  setIsNoteOpen: a function that sets whether the Note component is open or not.
+  setIsNoteAdded: a function that sets whether a note has been added to the subject or not.
+Output:
+Return – A React component that renders a form to add or change a note for a specific subject in a standard.
+**************************************************************************************/
 
 function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
   const { setScrollVisibility, matching, setMatching } =
@@ -23,7 +36,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
   }, [showAlert]);
   function handleSubmit(event) {
     event.preventDefault();
-
+    if(event.target.Section_Note.value && event.target.Add_Note.value){
     const Note = {
       ...subject,
       section: event.target.Section_Note.value,
@@ -39,6 +52,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
     edited_matching.splice(index, 0, Note);
     setMatching({ ...matching, [standard_id]: edited_matching });
     setShowAlert(true);
+    }else{ alert('Please add both Section Note and Add Note before submitting.');}
   }
   let defSection = "";
   let defNote = "";
@@ -49,7 +63,7 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
     defNote = matching[standard_id].filter((subject2) => {
       return subject2.subject_id == subject.subject_id;
     })[0]["note"];
-    if (defSection || defNote ){
+    if (defSection && defNote ){
       console.log(defSection)
       buttonText = "Change Note"
       setIsNoteAdded("See Note")

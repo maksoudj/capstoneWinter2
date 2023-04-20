@@ -5,7 +5,16 @@ import AddedSubjectButton from "./AddedSubjectButton";
 import { useMemo, useCallback } from "react";
 import { useContext, useEffect } from "react";
 import DataContext from "../Context/FormContext";
-
+/**************************************************************************************
+Component: DropCircle
+Function: This component is responsible for displaying a circle that can be used to add subjects. 
+It allows users to drag and drop a subject onto it, and then adds the subject to the corresponding standard.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters - { standard_id }: An integer representing the ID of the standard to which the subject is being added.
+Output: This component returns a JSX element representing a div that displays the added subjects and the circle where subjects can be dropped.
+Return – JSX Element
+**************************************************************************************/
 
 
 function DropCircle({ standard_id }) {
