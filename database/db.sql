@@ -5006,9 +5006,10 @@ create table grade_school(
   foreign key (school_id) references schools(school_id)
 );
 
+
   CREATE PROCEDURE getSchoolsByDivision(IN division VARCHAR(100))
 BEGIN
-    SELECT schools.school_name FROM schools left join school_division on schools.school_id = school_division.school_id left join divisions on school_division.division_id = divisions.division_id where divisions.division_name like division;
+    SELECT * FROM schools left join school_division on schools.school_id = school_division.school_id left join divisions on school_division.division_id = divisions.division_id where divisions.division_name like division;
 END;
 
 
@@ -6365,7 +6366,6 @@ create table session_form(
     date_month int not null,
     date_day int not null,
     date_year int not null,
-    date_date date not null,
     primary key (sessions_id),
     foreign key (school_division_id) references school_division (school_division_id),
     foreign key (grade_id) references grades (grade_id)
