@@ -1,13 +1,19 @@
 import StandardCard from "./StandardCard";
-import classes from "./ListOfStandards.module.css";
-import DropArea from "./DropArea";
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 import SimpleBarReact from "simplebar-react";
 import "simplebar-react/dist/simplebar.min.css";
-
+/**************************************************************************************
+Component: List
+Function: This component is responsible for rendering a list of StandardCards by mapping through the input data passed as a prop. 
+It also renders a scrollbar using the SimpleBarReact component and handles the scrollVisibility state from the FormContext.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters -
+data: An array of objects representing the data to be displayed in the list.
+Output:
+Return – A JSX element representing a list of StandardCards with a scrollbar.
+**************************************************************************************/
 export default function List({ data }) {
   const {scrollVisibility} = useContext(DataContext)
   const cardsList = data.map((standard) => {

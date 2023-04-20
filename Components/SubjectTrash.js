@@ -4,7 +4,15 @@ import DataContext from "../Context/FormContext";
 import { useContext,useState } from "react";
 import Image from "next/image";
 import TrashIcon from './trash.svg'
-
+/**************************************************************************************
+Component: SubjectTrash
+Function: This is a functional component that allows for the removal of subjects from the application's database.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters - None
+Output:
+Return - The component returns a JSX element that displays a trashcan icon which serves as a dropzone for subject items.
+**************************************************************************************/
 function SubjectTrash() {
   const { subjectList, setSubjectList } = useContext(DataContext);
   const { matching, setMatching } = useContext(DataContext);

@@ -2,7 +2,19 @@ import React from "react";
 import DataContext from "../Context/FormContext";
 import { useContext } from "react";
 import { color } from "@mui/system";
-
+/**************************************************************************************
+Component: ProgressBar
+Function: This component displays a progress bar showing the completion status of a form matching process. 
+The progress bar includes a status message and a percentage value.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters - None
+Context -
+  gradeStandards: an array of grade standards
+  matching: an object containing matched form values
+Output:
+Return - Returns JSX for rendering the progress bar UI.
+**************************************************************************************/
 
 export default function ProgressBar() {
   

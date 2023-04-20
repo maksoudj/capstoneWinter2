@@ -4,7 +4,20 @@ import { useState, useEffect, useContext } from "react";
 import MoreModal from "./MoreModal";
 import axios from "axios";
 import DataContext from "../Context/FormContext";
-
+/**************************************************************************************
+Component: StandardCard
+Function: This component renders a card with information about a particular standard, and notes associated with that standard. 
+It also allows the user to view more information about the standard in a modal,
+and provides a drop area for the user to drag and drop files related to the standard.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Props -
+  standard_id: The unique ID of the standard being displayed.
+  description: A string containing the description of the standard.
+  context_of_the_standard: A string containing the context of the standard.
+Output:
+Returns a JSX element that displays a card containing information about the standard and notes associated with it.
+**************************************************************************************/
 export default function StandardCard(props) {
   const [isOpen, setIsOpen] = useState(false);
   const { matching } = useContext(DataContext);

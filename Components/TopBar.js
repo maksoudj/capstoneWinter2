@@ -8,7 +8,16 @@ import DataContext from "../Context/FormContext";
 import Second_Help from "./Second_Help";
 import Third_Help from "./Third_Help";
 import Fourth_Help from "./Fourth_Help";
-
+/**************************************************************************************
+Component: TopBar
+Function: Renders the top navigation bar with a logo and an information icon. 
+When the information icon is clicked, a help page corresponding to the current page is displayed.
+*------------------------------------------------------------------------------------------------------
+Input:
+Parameters - None
+Output:
+Return – The rendered top navigation bar component
+**************************************************************************************/
 function TopBar() {
   const [isOpen, setIsOpen] = useState(false);
   const { page,setPage } = useContext(DataContext);

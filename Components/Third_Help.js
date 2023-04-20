@@ -5,6 +5,19 @@ import { Description } from "@mui/icons-material";
 import DropArea from "./DropArea";
 import DnD from "./DnD";
 import DataContext from "../Context/FormContext";
+/**************************************************************************************
+Component: Third_help
+Function: This component represents the help section for the third page of the application.
+It provides an explanation of the functionality and usage instructions for the user.
+*-----------------------------------------------------------------------------------------
+Input:
+Props -
+  setIsOpen: a function to toggle the visibility of the help section
+Context -
+  setScrollVisibility: a function to set the visibility of the scroll bar in the main page context
+Output:
+Return – A JSX element that renders the help section for the third page of the application.
+**************************************************************************************/
 
 export default function Third_help({
   setIsOpen,

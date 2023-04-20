@@ -9,6 +9,25 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import ComponentToPrint from "./ComponentToPrint";
 import { CSVLink, CSVDownload } from "react-csv";
+/**************************************************************************************
+Component: CSV
+Function: This component takes data from the matching context and generates a CSV file with the following columns:
+  Standard ID
+  Description Of Standard
+  Subject Match
+  Subject Section
+  Subject Note
+  Names
+  School Name
+It also sorts the data by Standard ID and adds single quotes to the Standard IDs to prevent any issues with Excel auto-formatting.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+None
+Parameters - None
+Output:
+The component returns a CSVLink component that contains the generated CSV file and a LinkButton component that is used to trigger the download of the CSV file.
+Return – A JSX element containing the CSVLink and LinkButton components.
+**************************************************************************************/
 
 // this function will take the data in the matching context and make a CSV in the form of: standardID, descriptionOfStandard, subjectMatch, subjectSection, subjectNote
 function CSV ({ page, setPage }){

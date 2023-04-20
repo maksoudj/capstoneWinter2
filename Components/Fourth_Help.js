@@ -1,10 +1,16 @@
 import React from "react";
-import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { Description } from "@mui/icons-material";
-import DropArea from "./DropArea";
-import DnD from "./DnD";
-import DataContext from "../Context/FormContext";
+/**************************************************************************************
+Component: Fourth_help
+Function: This component represents the help dialog for the fourth page of the application. 
+It displays the instructions and information for the user on how to use this page.
+*----------------------------------------------------------------------------------------------------------
+Input:
+Parameters -
+setIsOpen: A function that sets the state of the help dialog box to open or closed.
+Output: 
+Return – The component returns a JSX structure that represents the help dialog box containing instructions 
+and information for the user on how to use the fourth page of the application.
+**************************************************************************************/
 
 export default function Fourth_help({
   setIsOpen,

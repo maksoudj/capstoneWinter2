@@ -9,7 +9,25 @@ import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
 import ComponentToPrint from "./ComponentToPrint";
 import CSV from "./CSV.js";
-
+/**************************************************************************************
+Component: OverView
+Function: This component generates the overview of the matching results between the standards and subjects. 
+It displays the list of subjects and their matching standards in accordion format.
+It also provides options to print or download the overview as a CSV file.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Props -
+page: current page number of the application
+  setPage: function to set the page number in the application
+*----------------------------------------------------------------------------------------------------------------------------------------
+Output:
+Return – Returns the JSX elements of the OverView component, which includes:
+  ComponentToPrint: a component that renders the printable version of the overview
+  LinkButton: a reusable component to generate a link button with custom text
+  OverViewAccordian: a component that generates an accordion element to display the matching details of a standard and a subject
+  CSV: a component that generates a download link for the overview in CSV format
+  JSX elements for the subject-wise matching details, generated using the OverViewAccordian component
+**************************************************************************************/
 function OverView({ page, setPage }) {
   const [isOpen, setIsOpen] = useState(false);
   const { matching, setMatching, gradeStandards, subjectList } =

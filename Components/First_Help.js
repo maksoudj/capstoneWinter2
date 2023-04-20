@@ -1,10 +1,17 @@
 import React from "react";
-import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { Description } from "@mui/icons-material";
-import DropArea from "./DropArea";
-import DnD from "./DnD";
-import DataContext from "../Context/FormContext";
+
+/**************************************************************************************
+Component: First_help
+Function: This component displays help information for the first page of the application. 
+It provides a brief description of how to select the school division, school name, and grade level options from the dropdown menus and proceed to the next page.
+It also provides a link to visit the CodeVA website.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Props -
+setIsOpen: A function that sets the state of whether the help modal is open or closed.
+Output:
+Return - This component returns a React component that displays the help information for the first page of the application in a modal window.
+**************************************************************************************/
 
 export default function First_help({
   setIsOpen,

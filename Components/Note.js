@@ -7,6 +7,19 @@ import AddButton from "./AddButton";
 import { object } from "prop-types";
 import NoteAdded from "./NoteAdded";
 import { Alert } from "@material-tailwind/react";
+/**************************************************************************************
+Component: Note
+Function: Renders a form to add or change a note for a specific subject in a standard.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters - {subject, standard_id, setIsNoteOpen, setIsNoteAdded}
+  subject: an object containing information about the subject (e.g. subject name, subject id).
+  standard_id: the id of the standard to which the subject belongs.
+  setIsNoteOpen: a function that sets whether the Note component is open or not.
+  setIsNoteAdded: a function that sets whether a note has been added to the subject or not.
+Output:
+Return – A React component that renders a form to add or change a note for a specific subject in a standard.
+**************************************************************************************/
 
 function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
   const { setScrollVisibility, matching, setMatching } =

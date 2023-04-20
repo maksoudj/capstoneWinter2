@@ -1,4 +1,16 @@
+/**************************************************************************************
+
+Component: Table
+Function: This component is used to display a table with data, including columns for full name, email and role of users. 
+It also includes an 'Edit' button for each row.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters - N/A
+Output:
+Return - This component returns a JSX element that displays a table with data. The data is hardcoded and doesn't come from an API or a database.
+**************************************************************************************/
 export default function Table(){
+    
     return(
     <div className="container max-w-3xl px-4 mx-auto sm:px-8">
     <div className="py-8">
