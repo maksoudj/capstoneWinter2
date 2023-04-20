@@ -1,10 +1,17 @@
 import React from "react";
-import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { Description } from "@mui/icons-material";
-import DropArea from "./DropArea";
-import DnD from "./DnD";
-import DataContext from "../Context/FormContext";
+
+/**************************************************************************************
+Component: First_help
+Function: This component displays help information for the first page of the application. 
+It provides a brief description of how to select the school division, school name, and grade level options from the dropdown menus and proceed to the next page.
+It also provides a link to visit the CodeVA website.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Props -
+setIsOpen: A function that sets the state of whether the help modal is open or closed.
+Output:
+Return - This component returns a React component that displays the help information for the first page of the application in a modal window.
+**************************************************************************************/
 
 export default function First_help({
   setIsOpen,
@@ -32,24 +39,8 @@ export default function First_help({
             </div>
             {/*body*/}
             <div className="relative p-6 flex-auto overflow-y-auto ">
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-lg font-semibold list-item ">
-               Please pick the School Division, School Name, and Grade Level from the drop down menues. Once you are done, click the "next" button in the bottom right corner.
-              </h3>
-              <h3 className="text-lg font-semibold list-item">
-               The "About Us" button in the bottom left corner will take you to the CodeVA website.
-              </h3>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
+              <h3 className="text-lg font-semibold ">
+              Select the School Division, School Name, and Grade Level options available in the drop-down menus. After making your selections, click on the "next" button located at the bottom right corner. To visit the CodeVA website, you can click on the "About Us" button situated in the bottom left corner.</h3>
             </div>
           </div>
         </div>

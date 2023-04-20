@@ -10,7 +10,19 @@ import axios from "axios";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 import { Button } from "@mui/material";
-
+/**************************************************************************************
+Component: Start
+Function: This is a functional component that displays the initial page of the application.
+It renders three dropdown menus for selecting a division, school, and grade level. 
+It also displays a logo image and two buttons for navigating to the next page and the About Us page.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters - props: an object that contains the following properties:
+- schoolsAndDivisions: an object that contains the divisions, schools, grades, and subjects for the application.
+- setPage: a function to update the current page.
+Output:
+Return – The function returns the JSX code for rendering the Start component.
+**************************************************************************************/
 function Start(props) {
   const {formData, setFormData, setMatching,setSubjectList} = useContext(DataContext)
   console.log(props)

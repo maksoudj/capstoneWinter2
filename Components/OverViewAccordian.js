@@ -7,7 +7,28 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import DataContext from "../Context/FormContext";
-
+/**************************************************************************************
+Component: OverViewAccordian
+Function: This component displays the details of a specific educational standard along with essential skills, essential vocabulary, 
+and essential questions associated with the standard.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Props -
+  standard_id: (string) represents the id of the standard
+  standardInfo: (array) contains the information about the standard, including its description and context
+  subject_name: (string) represents the name of the subject associated with the standard
+Context -
+  questions: (array) contains essential questions associated with each standard
+  setQuestions: (function) sets the essential questions associated with each standard
+  skills: (array) contains essential skills associated with each standard
+  setSkills: (function) sets the essential skills associated with each standard
+  vocab: (array) contains essential vocabulary associated with each standard
+  setVocab: (function) sets the essential vocabulary associated with each standard
+  matching: (object) contains the mapping of standard_id and subject_name to their corresponding section and note
+Output:
+Returns the accordion component that displays the information about the standard along with essential skills, essential vocabulary,
+and essential questions associated with it.
+**************************************************************************************/
 function Icon({ id, open }) {
   return (
     <svg

@@ -1,11 +1,16 @@
 import React from "react";
-import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { Description } from "@mui/icons-material";
-import DropArea from "./DropArea";
-import DnD from "./DnD";
-import DataContext from "../Context/FormContext";
-
+/**************************************************************************************
+Component: Second_help
+Function: This component renders a help modal for the second page of a form. 
+It displays instructions for users on how to proceed to the next page and how to return to the previous page.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters -
+  setIsOpen: A function that sets the state of whether the modal is open or not.
+Output:
+Return – This component returns the JSX for the Second_help modal. 
+The modal contains a header, body, and two buttons - one for closing the modal and another for navigating to the previous page.
+**************************************************************************************/
 export default function Second_help({
   setIsOpen,
 }) {
@@ -32,22 +37,9 @@ export default function Second_help({
             </div>
             {/*body*/}
             <div className="relative p-6 flex-auto overflow-y-auto">
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-lg font-semibold list-item">
-              Each participating member will add their full name, Email address, and role within the school. Proceed with the "next" button in the bottom right corner.
+              <h3 className="text-lg font-semibold">
+              To continue, each member who is participating should provide their complete name, email address, and specify their role within the school. Click the "next" button located at the bottom right corner to proceed. If you need to return to the first page, you can use the "prev" button situated in the bottom left corner.
               </h3>
-              <h3 className="text-lg font-semibold list-item">
-              The "prev" button in the bottom Left corner will take you back to the first page.</h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
-              <h3 className="text-xl font-semibold"></h3>
-              <p className="my-4 text-slate-500 text-lg leading-relaxed">
-              </p>
             </div>
           </div>
         </div>

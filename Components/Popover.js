@@ -5,9 +5,19 @@ import Button from "@mui/material/Button";
 import { useState, useContext, useEffect } from "react";
 import AddButton from "./AddButton";
 import DataContext from "../Context/FormContext";
-
-
-
+/**************************************************************************************
+Component: PopoverButton
+Function: This component is responsible for rendering a button that opens a popover when clicked. 
+The popover contains a form where the user can add a new subject. 
+The new subject is then added to the list of subjects that are displayed elsewhere in the application.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters - None
+Props - None
+Context - The DataContext is used to access the subjectList and setSubjectList variables.
+Output:
+Return – This component returns a button that opens a popover.
+**************************************************************************************/
 export default function PopoverButton() {
   const {subjectList, setSubjectList} = useContext(DataContext);
   const [anchorEl, setAnchorEl] = React.useState(null);

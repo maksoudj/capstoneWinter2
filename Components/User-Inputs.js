@@ -11,6 +11,19 @@ import LinkButton from "./LinkButton";
 import React from "react";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
+/**************************************************************************************
+Component: UserInput
+Function: This component is responsible for rendering the UI for adding and editing user data. 
+It uses Material-UI components such as TextField, DataGrid, and GridActionsCellItem to create a form for inputting user data and displaying the data in a grid format. 
+It also provides functionality for deleting and editing the data.
+*----------------------------------------------------------------------------------------------------------------------------------------
+Input:
+Parameters - 
+page: The current page number 
+setPage: A function that sets the current page number,
+Output:
+Return – Returns the UI for the UserInput component.
+**************************************************************************************/
 
 function UserInput({ page, setPage}) {
   const {users, setUsers} = useContext(DataContext)
