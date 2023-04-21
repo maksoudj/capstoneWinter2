@@ -1,9 +1,5 @@
 import React from "react";
-import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { Description } from "@mui/icons-material";
-import DropArea from "./DropArea";
-import DnD from "./DnD";
+import {useContext } from "react";
 import DataContext from "../Context/FormContext";
 /**************************************************************************************
 Component: Third_help
@@ -30,7 +26,7 @@ export default function Third_help({
       <div className="justify-center items-center flex-col flex overflow-x-hidden overflow-y-auto fixed inset-0 z-[100] outline-none focus:outline-none">
         <div className="relative my-6 mx-auto  ">
           {/*content*/}
-          <div className="border-0 rounded-lg shadow-lg relative flex flex-col bg-white outline-none focus:outline-none w-[40vw] h-[45vh]">
+          <div className="border-0 rounded-lg shadow-lg relative flex flex-col bg-white outline-none focus:outline-none w-[40vw] h-[45vh]  ml-10 mb-5">
             {/*header*/}
             <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
               <h3 className="text-3xl font-semibold">Third Page Help:</h3>
@@ -47,7 +43,8 @@ export default function Third_help({
               </button>
             </div>
             {/*body*/}
-            <div className="relative p-6 flex-auto overflow-y-scroll">
+            
+            <div className="relative p-6 flex-auto overflow-y-scroll mb-5">
               <h3 className="text-lg font-semibold">
               <ul>
               <li>- Welcome to the Matching page where you can match Standards of Learning for the chosen grade level with their respective descriptions and contexts. Each Standard box has a "more" button in the bottom right corner that, when clicked, reveals Essential skills, Essential Questions, and Vocabulary for that Standard.</li>

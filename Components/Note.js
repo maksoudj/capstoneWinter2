@@ -2,10 +2,7 @@ import React from "react";
 import { TextField } from "@mui/material";
 import { useContext, useState, useEffect } from "react";
 import DataContext from "../Context/FormContext";
-import { width } from "@mui/system";
 import AddButton from "./AddButton";
-import { object } from "prop-types";
-import NoteAdded from "./NoteAdded";
 import { Alert } from "@material-tailwind/react";
 /**************************************************************************************
 Component: Note

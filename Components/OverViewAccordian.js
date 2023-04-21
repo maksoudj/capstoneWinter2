@@ -4,7 +4,6 @@ import {
   Accordion,
   AccordionHeader,
   AccordionBody,
-  Typography,
 } from "@material-tailwind/react";
 import DataContext from "../Context/FormContext";
 /**************************************************************************************

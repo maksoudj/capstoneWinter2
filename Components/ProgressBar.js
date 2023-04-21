@@ -1,7 +1,6 @@
 import React from "react";
 import DataContext from "../Context/FormContext";
 import { useContext } from "react";
-import { color } from "@mui/system";
 /**************************************************************************************
 Component: ProgressBar
 Function: This component displays a progress bar showing the completion status of a form matching process. 

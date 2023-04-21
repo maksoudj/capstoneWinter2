@@ -37,7 +37,7 @@ export default function Fourth_help({
               </button>
             </div>
             {/*body*/}
-            <div className="relative p-6 flex-auto overflow-y-auto">
+            <div className="relative p-6 flex-auto overflow-y-auto mb-5">
               <h3 className="text-xl font-semibold ">
               On this page, you can get an overview of all the matched Standards. The Standards are grouped by the subject they are matched to, and it shows the CS standard and both notes added to the matching. Clicking on each matched Standard will display all the information for that particular Standard. Clicking the submit button will download a CSV file and take you back to the start. You can also print or download the displayed information by clicking the "print/download" button.
               </h3>

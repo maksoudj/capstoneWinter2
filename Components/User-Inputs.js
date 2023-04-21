@@ -3,8 +3,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import {
   DataGrid,
   GridActionsCellItem,
-  GridToolbarContainer,
-  GridToolbarDensitySelector,
 } from "@mui/x-data-grid";
 import Box from "@mui/material/Box";
 import LinkButton from "./LinkButton";

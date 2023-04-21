@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrop } from "react-dnd";
 import DataContext from "../Context/FormContext";
-import { useContext,useState } from "react";
+import { useContext } from "react";
 import Image from "next/image";
 import TrashIcon from './trash.svg'
 /**************************************************************************************

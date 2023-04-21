@@ -1,6 +1,5 @@
 import React from "react";
 import SubjectCircle from "./SubjectCircle";
-import { useState, useEffect } from "react";
 import { useContext } from "react";
 import DataContext from "../Context/FormContext";
 import PopoverButton from "./Popover";

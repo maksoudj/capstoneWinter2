@@ -3,7 +3,7 @@ import topLogo from "../images/TopLogo.svg";
 import Image from "next/image";
 import info from "../images/info.svg";
 import First_Help from "./First_Help";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import DataContext from "../Context/FormContext";
 import Second_Help from "./Second_Help";
 import Third_Help from "./Third_Help";

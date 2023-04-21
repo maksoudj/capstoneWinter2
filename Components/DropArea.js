@@ -1,5 +1,4 @@
 import DropCircle from "./DropCircle"
-import AddedSubjectButton from "./AddedSubjectButton"
 export default function DropArea({standard_id}) {
     
   return (

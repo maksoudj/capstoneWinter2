@@ -2,8 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDrop } from "react-dnd";
 import AddedSubjectButton from "./AddedSubjectButton";
-import { useMemo, useCallback } from "react";
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import DataContext from "../Context/FormContext";
 /**************************************************************************************
 Component: DropCircle

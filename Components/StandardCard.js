@@ -1,8 +1,7 @@
 /* eslint-disable react/jsx-key */
 import DropArea from "./DropArea";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import MoreModal from "./MoreModal";
-import axios from "axios";
 import DataContext from "../Context/FormContext";
 /**************************************************************************************
 Component: StandardCard

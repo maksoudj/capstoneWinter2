@@ -3,7 +3,6 @@ import classes from "./Start.module.css";
 import DropDown from "./DropDown";
 import LinkButton from "./LinkButton";
 import Box from "@mui/material/Box";
-//import { FormControl } from "@mui/material";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";

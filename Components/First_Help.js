@@ -38,7 +38,7 @@ export default function First_help({
               </button>
             </div>
             {/*body*/}
-            <div className="relative p-6 flex-auto overflow-y-auto ">
+            <div className="relative p-6 flex-auto overflow-y-auto">
               <h3 className="text-lg font-semibold ">
               Select the School Division, School Name, and Grade Level options available in the drop-down menus. After making your selections, click on the "next" button located at the bottom right corner. To visit the CodeVA website, you can click on the "About Us" button situated in the bottom left corner.</h3>
             </div>
