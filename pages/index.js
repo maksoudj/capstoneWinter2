@@ -41,15 +41,12 @@ function Parent(props) {
   const {skills, setSkills} = useContext(DataContext);
   const {vocab, setVocab} = useContext(DataContext);
   setSubjectList(props.schoolsAndDivisions.subjectList);
-  console.log(subjectList);
   const {page, setPage} = useContext(DataContext);
 
   
   if (formData.selectedGrade != null && formData.selectedGrade.length > 0) {
   let selectedGrade = formData.selectedGrade;
   var firstCharOfGrade = selectedGrade[0];
-  console.log(selectedGrade);
-  console.log(formData);
   }
   useEffect(() => {
     

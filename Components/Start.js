@@ -25,7 +25,6 @@ Return – The function returns the JSX code for rendering the Start component.
 **************************************************************************************/
 function Start(props) {
   const {formData, setFormData, setMatching,setSubjectList} = useContext(DataContext)
-  console.log(props)
   const [schools, setSchools] = useState([]);
   const divisions = props.schoolsAndDivisions.divisions.map(
     (division) => division.division_name
@@ -45,8 +44,6 @@ function Start(props) {
     };
     getSchools();
   }, [formData.selectedDivision]);
-
-  console.log(props);
   return (
     <div>
         <div className={classes.inputBox}>

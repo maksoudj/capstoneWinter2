@@ -26,7 +26,7 @@ export default function List({ data }) {
       />
     );
   });
-  console.log(data);
+
 
   return (
     <div className="mt-6">

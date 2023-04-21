@@ -33,7 +33,6 @@ function SubjectTrash() {
     setMatching((matching) => {
       return { ...matching };
     });
-    console.log(id);
     const subjectToRemove = subjectList.findIndex(
       (subject) => id == subject.subject_id
     );
@@ -56,18 +55,12 @@ function SubjectTrash() {
             .toString()
       );
     } else if (subjectList.find((subject) => id === subject.subject_id != null)) {
-      console.log(subjectList.findIndex(
-        (subject) => id == subject.subject_id
-      ))
-      console.log(subjectList);
       const temp = subjectList;
       setSubjectList( temp.splice(temp.findIndex(
         (subject) => id == subject.subject_id
       ),1));
-      console.log(subjectList);
     }
   };
-  console.log(subjectList);
 
     return (
     <div className="flex m-2 pb-10" ref={drop}

@@ -22,10 +22,9 @@ function TopBar() {
   const [isOpen, setIsOpen] = useState(false);
   const { page,setPage } = useContext(DataContext);
   function helpPage(page){
-    console.log(page)
 
     if (page == 0){
-        console.log(page)
+
          return <First_Help setIsOpen={setIsOpen}/>
       }
       else if (page == 1){

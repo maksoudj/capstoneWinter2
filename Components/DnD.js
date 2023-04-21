@@ -25,7 +25,6 @@ function DnD() {
   const {trashVisibility} = useContext(DataContext);
 
   
-  console.log(subjectList);
   return (
     <>
       <div>

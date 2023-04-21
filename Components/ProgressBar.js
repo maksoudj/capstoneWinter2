@@ -19,13 +19,10 @@ Return - Returns JSX for rendering the progress bar UI.
 export default function ProgressBar() {
   
   const {gradeStandards, matching} = useContext(DataContext);
-  
-  console.log(Object.keys(matching).length)
-  console.log(gradeStandards.length);
+
 
   const Progress = Math.round((Object.keys(matching).length / gradeStandards.length) * 100).toString().concat("%");
 
-  console.log(Progress);
   
   let progressStatus = "";
   if(Progress == '100%'){

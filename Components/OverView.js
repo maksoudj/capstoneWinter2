@@ -32,7 +32,6 @@ function OverView({ page, setPage }) {
   const [isOpen, setIsOpen] = useState(false);
   const { matching, setMatching, gradeStandards, subjectList } =
     useContext(DataContext);
-  console.log(gradeStandards);
   useEffect(() => {
     const sortedMatching = Object.keys(matching)
       .sort((a, b) => {
@@ -48,8 +47,6 @@ function OverView({ page, setPage }) {
         obj[key] = matching[key];
         return obj;
       }, {});
-    console.log(sortedMatching);
-    console.log(matching);
     setMatching(sortedMatching);
   }, []);
   let standardsPerSubject = [];
@@ -62,17 +59,13 @@ function OverView({ page, setPage }) {
         )
       ),
     });
-    console.log(subject.subject_id);
   });
   standardsPerSubject = standardsPerSubject.filter(
     (subjectBindings) => subjectBindings.standards.length != 0
   );
-  console.log(standardsPerSubject);
 
   const overviewAccordionsData = [];
-  console.log(standardsPerSubject)
   standardsPerSubject.forEach((subjectMatch) => {
-    console.log(subjectMatch);
     overviewAccordionsData.push(
       <div>
         <div className=" text-center flex justify-center pb-3">

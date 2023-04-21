@@ -28,7 +28,6 @@ export default function StandardCard(props) {
   const formattedContext = props.context_of_the_standard
     .split("\n")
     .map((str) => <p>{str}</p>);
-  console.log(matching);
   const standard_id = props.standard_id;
   let notes = <div></div>;
   try {
@@ -52,7 +51,6 @@ export default function StandardCard(props) {
         </div>
       );
     }});
-    console.log(notes);
   } catch (e) {
     notes = <div></div>;
   }

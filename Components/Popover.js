@@ -42,11 +42,6 @@ export default function PopoverButton() {
     const newSubjectList = subjectList;
     newSubjectList.push({subject_id, subject_name});
     setSubjectList((subjectList) => {return [...subjectList,{subject_id,subject_name}]});
-    console.log(newSubjectList);
-    console.log(subject_name);
-    console.log(subject_id);
-    console.log(event.target.subjectToAdd.value);
-    console.log(subjectList);
   };
   
 

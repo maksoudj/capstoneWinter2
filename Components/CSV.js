@@ -32,8 +32,6 @@ Return – A JSX element containing the CSVLink and LinkButton components.
 // this function will take the data in the matching context and make a CSV in the form of: standardID, descriptionOfStandard, subjectMatch, subjectSection, subjectNote
 function CSV ({ page, setPage }){
     const { matching, gradeStandards, users, formData, setMatching} = useContext(DataContext);
-    console.log(users);
-    console.log(formData);
     let CSVdata = [
         ["Standard ID", "Description Of Standard", "Subject Match", "Subject Section", "Subject Note", "Names", "School Name"]
     ];
@@ -41,7 +39,6 @@ function CSV ({ page, setPage }){
     let names = users.map(user => user.fullName).join(", ");
     //get the keys of the matching object
     let keys = Object.keys(matching);
-    console.log(matching);
     //loop through the keys and get the data for each key
     for (let i = 0; i < keys.length; i++){
         const standardID = keys[i];
@@ -49,7 +46,6 @@ function CSV ({ page, setPage }){
         //get the data from the matching object
         let data = matching[standardID].map((match) => {
             let matchValues = Object.values(match);
-            console.log(matchValues.length);
             if (matchValues.length === 2){
                 matchValues.push('No Note Added');
                 matchValues.push("No Note Added");
@@ -59,10 +55,8 @@ function CSV ({ page, setPage }){
             matchValues.unshift(standardID);
             matchValues.push(names);
             matchValues.push(formData.selectedSchool);
-            console.log(matchValues);
             return matchValues;
         });
-        console.log(data);
         //push the data to the CSVdata array
 
         data.forEach(match=>{CSVdata.push(match)});
@@ -82,7 +76,6 @@ function CSV ({ page, setPage }){
     for(let i = 0; i<CSVdata.length;i++){
         CSVdata[i][0] = "'" + CSVdata[i][0] + "'" 
     }
-    console.log(CSVdata);
     return <CSVLink data={CSVdata} ><LinkButton
     disabled={false}
     onClick={() => {

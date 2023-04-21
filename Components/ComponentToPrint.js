@@ -72,7 +72,6 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
     const standardInfo = gradeStandards.find(
       (standards) => standards.standard_id == standard_id
     );
-    console.log(standardInfo);
       
     const formattedDescription = standardInfo.description
       .split("\n")
@@ -80,7 +79,6 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
     const formattedContext = standardInfo.context_of_the_standard
       .split("\n")
       .map((str) => <p>{str}</p>);
-    console.log(formattedDescription[0]);
     return (
       <div className="font-serif break-after-page" style={{margin: '2em 0' }}>
         <div className="px-9">
@@ -119,11 +117,9 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
     "/" +
     currentDate.getFullYear();
 
-  console.log(standardsPerSubject);
 
   const PDFData = [];
   standardsPerSubject.forEach((subjectMatch) => {
-    console.log(subjectMatch);
     PDFData.push(
       <div className="pl-9 pr-9"  style={{ pageBreakAfter: 'always'}}>
         <div className=" text-center flex justify-center pb-3">
@@ -138,7 +134,6 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
         </div>
         <div className="text-center">
           {subjectMatch.standards.map((standard_id) => {
-            console.log(standard_id);
 
             return (
               <div className="grid grid-cols-3 pb-3 gap-3" key={standard_id}>
@@ -162,7 +157,6 @@ const ComponentToPrint = forwardRef(({ standardsPerSubject }, ref) => {
       </div>
     );
   });
-  console.log(matching);
   return (
     <div ref={ref} className="bg-white p-9">
       <div className="float-right pr-3">{dateTime}</div>

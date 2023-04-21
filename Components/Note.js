@@ -64,7 +64,6 @@ function Note({ subject, standard_id, setIsNoteOpen, setIsNoteAdded }) {
       return subject2.subject_id == subject.subject_id;
     })[0]["note"];
     if (defSection && defNote ){
-      console.log(defSection)
       buttonText = "Change Note"
       setIsNoteAdded("See Note")
     }

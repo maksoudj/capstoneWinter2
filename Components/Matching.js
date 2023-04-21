@@ -47,8 +47,6 @@ export default function Matching({page, setPage}) {
 
     let selectedGrade = formData.selectedGrade
     const firstCharOfGrade = selectedGrade[0]
-    console.log(selectedGrade)
-    console.log(formData);
     const [data, setData] = useState([]);
    
 

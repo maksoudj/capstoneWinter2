@@ -107,7 +107,6 @@ function UserInput({ page, setPage}) {
     const val = params.value
     const newValue = {...users[index],[field]:val}
     setUsers(users => {return[...users.slice(0, index), newValue, ...users.slice(index + 1)]})
-    console.log(users)
 
   }
 

@@ -30,15 +30,10 @@ function AddedSubjectButton({ subject, standard_id }) {
       const matchingCopy = { ...matching };
       delete matchingCopy[standard_id]; 
       setMatching(matchingCopy);
-      console.log(matching);
     } else {
       setMatching({ ...matching, [standard_id]: newSubjects });
-      console.log(matching);
     }
   }
-  console.log(subject);
-  console.log(matching);
-  console.log(standard_id);
   return (
     <div>
       {isNoteOpen && (

@@ -97,9 +97,6 @@ export default function OverViewAccordian({
     .split("\n")
     .map((str) => <p>{str}</p>);
 
-  console.log(matching);
-  console.log(standardInfo);
-  console.log(standard_id);
 
   const handleOpen = (value) => {
     setOpen(open === value ? 0 : value);
@@ -125,7 +122,6 @@ export default function OverViewAccordian({
     .map((str) => <p>{str}</p>);
     formattedNote
   }
-  console.log(note);
   return (
     <div className="pb-5">
       <Accordion
